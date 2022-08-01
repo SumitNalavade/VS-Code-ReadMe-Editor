@@ -1,7 +1,5 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
-import { getAPIUserGender } from '../config';
-import { Message, CommonMessage } from './messages/messageTypes';
 
 export class ViewLoader {
   public static currentPanel?: vscode.WebviewPanel;
@@ -23,27 +21,6 @@ export class ViewLoader {
     // render webview
     this.renderWebview();
 
-    // listen messages from webview
-    this.panel.webview.onDidReceiveMessage(
-      (message: Message) => {
-        if (message.type === 'RELOAD') {
-          vscode.commands.executeCommand('workbench.action.webview.reloadWebviewAction');
-        } else if (message.type === 'COMMON') {
-          const text = (message as CommonMessage).payload;
-          vscode.window.showInformationMessage(`Received message from Webview: ${text}`);
-        }
-      },
-      null,
-      this.disposables
-    );
-
-    this.panel.onDidDispose(
-      () => {
-        this.dispose();
-      },
-      null,
-      this.disposables
-    );
   }
 
   private renderWebview() {
@@ -63,32 +40,10 @@ export class ViewLoader {
     }
   }
 
-  static postMessageToWebview<T extends Message = Message>(message: T) {
-    // post message from extension to webview
-    const cls = this;
-    cls.currentPanel?.webview.postMessage(message);
-  }
-
-  public dispose() {
-    ViewLoader.currentPanel = undefined;
-
-    // Clean up our resources
-    this.panel.dispose();
-
-    while (this.disposables.length) {
-      const x = this.disposables.pop();
-      if (x) {
-        x.dispose();
-      }
-    }
-  }
-
   render() {
     const bundleScriptPath = this.panel.webview.asWebviewUri(
       vscode.Uri.file(path.join(this.context.extensionPath, 'out', 'app', 'bundle.js'))
     );
-
-    const gender = getAPIUserGender();
 
     return `
       <!DOCTYPE html>
@@ -103,7 +58,6 @@ export class ViewLoader {
           <div id="root"></div>
           <script>
             const vscode = acquireVsCodeApi();
-            const apiUserGender = "${gender}"
           </script>
           <script>
             console.log('apiUserGender', apiUserGender)

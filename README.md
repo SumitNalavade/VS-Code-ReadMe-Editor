@@ -1,6 +1,6 @@
 # VSCode Webview React Boilerplate
 
-An awesome boilerplate for developing VSCode Extension Webview in `React`, `React Router` and `TypeScript`.
+An awesome boilerplate for developing VSCode Extension Webview in `React`, and `TypeScript`.
 
 ![screenshot](screenshot.gif)
 

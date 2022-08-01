@@ -1,5 +1,9 @@
-import React from 'react';
+import React from "react";
 
-export const Home = () => {
-  return <h1>Home</h1>;
+const Home: React.FC = () => {
+    return (
+        <h1>Hello VS Code</h1>
+    );
 };
+
+export default Home;

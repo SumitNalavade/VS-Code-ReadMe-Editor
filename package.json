@@ -1,7 +1,7 @@
 {
-  "name": "vscode-webview-react-boilerplate",
-  "displayName": "VSCode webview react boilerplate",
-  "description": "Boilerplate for developing webview using react in VSCode extension",
+  "name": "vscode-readme-editor",
+  "displayName": "VS Code ReadMe Editor",
+  "description": "Create, Customize and Commit your project's ReadMe without having to leave VS Code",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.52.0"
@@ -12,8 +12,11 @@
   "keywords": [
     "vscode",
     "vscode-extension",
-    "vscode-extension-boilerplate",
-    "boilerplate"
+    "Readme",
+    "ReadMe",
+    "ReadMe generator",
+    "ReadMe editor",
+    "ReadMe maker"
   ],
   "activationEvents": [
     "onStartupFinished"
@@ -22,36 +25,17 @@
   "contributes": {
     "commands": [
       {
-        "command": "webview.open",
-        "title": "Open Webview",
-        "category": "Webview React"
-      },
-      {
-        "command": "extension.sendMessage",
-        "title": "Send Message to Webview",
-        "category": "Webview React"
+        "command": "vscode-readme-editor.open",
+        "title": "VS Code ReadMe Editor"
       }
-    ],
-    "configuration": {
-      "title": "Webview React",
-      "properties": {
-        "webviewReact.userApiGender": {
-          "type": "string",
-          "default": "male",
-          "enum": [
-            "male",
-            "female"
-          ],
-          "enumDescriptions": [
-            "Fetching user information with gender of male",
-            "Fetching user information with gender of female"
-          ]
-        }
-      }
-    }
+    ]
   },
+  "repository": {
+		"type": "git",
+		"url": "https://github.com/SumitNalavade/VSCode-ReadMe-Editor.git"
+	},
   "scripts": {
-    "vscode:prepublish": "npm run compile",
+    "vscode:prepublish": "",
     "compile": "npm-run-all compile:*",
     "compile:extension": "tsc -p ./",
     "compile:view": "webpack --mode development",
@@ -68,7 +52,6 @@
     "@types/node": "^12.11.7",
     "@types/react": "^17.0.1",
     "@types/react-dom": "^17.0.0",
-    "@types/react-router-dom": "^5.1.7",
     "@types/vscode": "^1.52.0",
     "@typescript-eslint/eslint-plugin": "^4.9.0",
     "@typescript-eslint/parser": "^4.9.0",
@@ -88,7 +71,6 @@
   },
   "dependencies": {
     "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0"
+    "react-dom": "^17.0.1"
   }
 }
