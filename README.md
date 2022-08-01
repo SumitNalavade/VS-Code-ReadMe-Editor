@@ -1,4 +1,17 @@
-# VSCode Webview React Boilerplate
+
+# VS Code ReadMe Editor
+
+Create, Customize and Commit your project's ReadMe without leaving VS Code
+
+Inspired by: https://readme.so
+
+^ Add the functionality of this site directly into VS Code and be able to commit the new ReadMe directly into the root of the project
+
+--------
+
+VS Code Extension Boilerplate: https://github.com/hacker0limbo/vscode-webview-react-boilerplate
+
+^ So you can setup a VS Code extension with React and TypeScript without going through Webpack Config hell
 
 An awesome boilerplate for developing VSCode Extension Webview in `React`, and `TypeScript`.
 
