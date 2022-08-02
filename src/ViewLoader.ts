@@ -45,6 +45,11 @@ export class ViewLoader {
       vscode.Uri.file(path.join(this.context.extensionPath, 'out', 'app', 'bundle.js'))
     );
 
+    const zustandScriptPath = this.panel.webview.asWebviewUri(
+      vscode.Uri.file(path.join(this.context.extensionPath, 'node_modules', 'zustand', 'index.js'))
+    );
+
+
     return `
       <!DOCTYPE html>
         <html lang="en">
@@ -64,6 +69,7 @@ export class ViewLoader {
             console.log('apiUserGender', apiUserGender)
           </script>
           <script src="${bundleScriptPath}"></script>
+          <script src="${zustandScriptPath}"></script>
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
         </body>
       </html>

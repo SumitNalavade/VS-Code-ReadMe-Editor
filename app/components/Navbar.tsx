@@ -1,4 +1,5 @@
 import React from "react";
+import useAppStore from "../stores/useAppStore";
 
 const DownloadIcon: React.FC = () => {
     return (
@@ -11,10 +12,21 @@ const DownloadIcon: React.FC = () => {
     );
 };
 
+const StackIcon: React.FC = () => {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+        </svg>
+    );
+};
+
 const Navbar: React.FC = () => {
+    const toggleComponentDrawerStatus = useAppStore((state) => state.toggleComponentDrawerStatus);
+    
     return (
         <nav className="navbar bg-light">
-            <div className="container-fluid d-flex justify-content-end">
+            <div className="container-fluid d-flex justify-content-between">
+                <button type="button" className="btn btn-link" onClick={toggleComponentDrawerStatus} ><StackIcon /></button>
                 <button type="button" className="btn btn-primary d-flex align-items-center "><DownloadIcon /> Download </button>
             </div>
         </nav>
