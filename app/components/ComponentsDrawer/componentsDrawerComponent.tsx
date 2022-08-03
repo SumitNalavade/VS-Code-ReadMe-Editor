@@ -10,7 +10,7 @@ interface Props {
 }
 
 const ComponentsDrawerComponent: React.FC<Props> = ({ component }) => {
-    const editorContent = useAppStore((state) => state.editorContent);
+    const editorContent = useAppStore((state) => state.markdownContent);
     const setEditorContent = useAppStore((state) => state.setEditorContent);
 
     const handleAddContent = () => {

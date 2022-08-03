@@ -9,7 +9,7 @@ interface AppState {
 
     components: IComponent[]
 
-    editorContent: string
+    markdownContent: string
     setEditorContent: (content: string) => void
 };
 
@@ -19,8 +19,8 @@ const useAppStore = create<AppState>()((set) => ({
 
     components,
 
-    editorContent: "",
-    setEditorContent: (content: string) => set({ editorContent: content })
+    markdownContent: "",
+    setEditorContent: (content: string) => set({ markdownContent: content })
 }));
 
 export default useAppStore;
