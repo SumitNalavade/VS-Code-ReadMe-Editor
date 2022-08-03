@@ -1,7 +1,7 @@
 {
   "name": "vscode-readme-editor",
   "displayName": "VS Code ReadMe Editor",
-  "description": "Create, Customize and Commit your project's ReadMe without having to leave VS Code",
+  "description": "Create, Customize and Commit your project's ReadMe in VS Code with an easy to use visual interface",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.52.0"
@@ -72,6 +72,8 @@
   "dependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-markdown": "^8.0.3",
+    "remark-gfm": "^3.0.1",
     "zustand": "^4.0.0"
   }
 }
