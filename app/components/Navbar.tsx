@@ -21,12 +21,12 @@ const StackIcon: React.FC = () => {
 };
 
 const Navbar: React.FC = () => {
-    const toggleComponentDrawerStatus = useAppStore((state) => state.toggleComponentDrawerStatus);
+    const toggleComponentDrawerViewStatus = useAppStore((state) => state.toggleComponentDrawerViewStatus);
     
     return (
         <nav className="navbar bg-light">
             <div className="container-fluid d-flex justify-content-between">
-                <button type="button" className="btn btn-link" onClick={toggleComponentDrawerStatus} ><StackIcon /></button>
+                <button type="button" className="btn btn-link" onClick={toggleComponentDrawerViewStatus} ><StackIcon /></button>
                 <button type="button" className="btn btn-primary d-flex align-items-center "><DownloadIcon /> Download </button>
             </div>
         </nav>

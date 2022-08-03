@@ -4,8 +4,10 @@ import components from "../components";
 import IComponent from "../utils/componentInterface";
 
 interface AppState {
-    componentDrawerStatus: "show" | "hiding"
-    toggleComponentDrawerStatus: () => void
+    componentDrawerViewStatus: "show" | "hiding"
+    componentDrawerStatus: "added" | "popular" | "all"
+    toggleComponentDrawerViewStatus: () => void
+    setComponentDrawerStatus: (status: "added" | "popular" | "all") => void
 
     components: IComponent[]
 
@@ -14,9 +16,11 @@ interface AppState {
 };
 
 const useAppStore = create<AppState>()((set) => ({
-    componentDrawerStatus: "hiding",
-    toggleComponentDrawerStatus: () => set((state) => ({ componentDrawerStatus: state.componentDrawerStatus === "hiding" ? "show" : "hiding"})),
-
+    componentDrawerViewStatus: "hiding",
+    componentDrawerStatus: "added",
+    toggleComponentDrawerViewStatus: () => set((state) => ({ componentDrawerViewStatus: state.componentDrawerViewStatus === "hiding" ? "show" : "hiding"})),
+    setComponentDrawerStatus: (status) => set((state) => ({ componentDrawerStatus: status })),
+    
     components,
 
     markdownContent: "",

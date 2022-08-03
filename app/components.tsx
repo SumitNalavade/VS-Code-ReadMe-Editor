@@ -1,6 +1,3 @@
-import React from "react";
-import ReactMarkdown from "react-markdown";
-
 import IComponent from "./utils/componentInterface";
 
 const components: IComponent[] = [
@@ -65,8 +62,8 @@ Any additional information goes here
 
 Add badges from somewhere like: [shields.io](https://shields.io/)  
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)  
-[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)  
-[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://choosealicense.com/licenses/gpl-3.0/)  
+[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](https://choosealicense.com/licenses/gpl-3.0/)
         `
     },
     {
@@ -96,6 +93,7 @@ Please adhere to this project's \`code of conduct\`.
     },
     {
         name: "Demo",
+        popular: true,
         content: `
 ## Demo  
 
@@ -149,6 +147,7 @@ Answer 2
     },
     {
         name: "Features",
+        popular: true,
         content: `
 ## Features  
 
@@ -223,6 +222,7 @@ What did you learn while building this project? What challenges did you face and
     },
     {
         name: "License",
+        popular: true,
         content: `
 ## License  
 
@@ -265,6 +265,7 @@ Here are some related projects
     },
     {
         name: "Run Locally",
+        popular: true,
         content: `
 ## Run Locally  
 
@@ -295,6 +296,7 @@ npm run start
     },
     {
         name: "Screenshots",
+        popular: true,
         content: `
 ## Screenshots  
 
@@ -311,6 +313,7 @@ For support, email fake@fake.com or join our Slack channel.
     },
     {
         name: "Tech Stack",
+        popular: true,
         content: `
 ## Tech Stack  
 
@@ -321,6 +324,7 @@ For support, email fake@fake.com or join our Slack channel.
     },
     {
         name: "Title & Description",
+        popular: true,
         content: `
 # Project Title  
 

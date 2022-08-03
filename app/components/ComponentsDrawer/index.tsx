@@ -6,19 +6,32 @@ import ComponentsDrawerComponent from "./componentsDrawerComponent";
 
 const ComponentsDrawer: React.FC = ({ }) => {
 
-    const componentDrawerStatus = useAppStore((state) => state.componentDrawerStatus);
-    const toggleComponentDrawerStatus = useAppStore((state) => state.toggleComponentDrawerStatus);
+    const componentDrawerViewStatus = useAppStore((state) => state.componentDrawerViewStatus);
+    const toggleComponentDrawerViewStatus = useAppStore((state) => state.toggleComponentDrawerViewStatus);
 
-    const components = useAppStore((state) => state.components);
+    const componentDrawerStatus = useAppStore((state) => state.componentDrawerStatus);
+    const setComponentDrawerStatus = useAppStore((state) => state.setComponentDrawerStatus);
+    
+    const allComponents = useAppStore((state) => state.components);
 
     return (
-        <div className={`offcanvas offcanvas-start ${ componentDrawerStatus }`}>
-            <div className="offcanvas-header">
-                <h5 className="offcanvas-title">Components</h5>
-                <button type="button" className="btn-close" onClick={toggleComponentDrawerStatus} ></button>
+        <div className={`offcanvas offcanvas-start ${ componentDrawerViewStatus }`}>
+            <div className="offcanvas-header flex justify-content-between">
+                <ul className="nav nav-pills nav-fill">
+                    <li className="nav-item mx-2" onClick={() => setComponentDrawerStatus("added")}>
+                        <a className={`nav-link ${componentDrawerStatus === "added" ? "active" : ""}`} >Added</a>
+                    </li>
+                    <li className="nav-item mx-2" onClick={() => setComponentDrawerStatus("popular")} >
+                        <a className={`nav-link ${componentDrawerStatus === "popular" ? "active" : ""}`} >Popular</a>
+                    </li>
+                    <li className="nav-item mx-2" onClick={() => setComponentDrawerStatus("all")} >
+                        <a className={`nav-link ${componentDrawerStatus === "all" ? "active" : ""}`}>All</a>
+                    </li>
+                </ul>
+                <button type="button" className="btn-close nav-link" onClick={toggleComponentDrawerViewStatus}></button>
             </div>
             <div className="offcanvas-body">
-                { components.map((component) => {
+                { allComponents.map((component) => {
                     return (
                        <ComponentsDrawerComponent component={component} />
                     )
