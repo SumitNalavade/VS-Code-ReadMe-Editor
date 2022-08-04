@@ -6,12 +6,12 @@ import useAppStore from "../../stores/useAppStore";
 
 const MarkdownPreview: React.FC = () => {
 
-    const markdownContent = useAppStore((state) => state.markdownContent);
+    const editorContent = useAppStore((state) => state.editorContent);
 
-    const previewContent =  <ReactMarkdown children={markdownContent} remarkPlugins={[remarkGfm]} />
+    const previewContent =  <ReactMarkdown children={editorContent} remarkPlugins={[remarkGfm]} />
 
     return (
-        <div className="preview overflow-auto" style={{ "height": "85vh" }}>
+        <div className="preview overflow-auto text-break" style={{ "height": "85vh", "width": "45vw" }}>
               { previewContent }
         </div>
     );

@@ -1,5 +1,4 @@
 import React from "react";
-import ReactMarkdown from "react-markdown";
 
 import useAppStore from "../../stores/useAppStore";
 
@@ -9,19 +8,15 @@ interface Props {
     component: IComponent
 }
 
-const ComponentsDrawerComponent: React.FC<Props> = ({ component }) => {
-    const editorContent = useAppStore((state) => state.markdownContent);
-    const setEditorContent = useAppStore((state) => state.setEditorContent);
+const ComponentsDrawerComponent: React.FC<Props> = ({ component }) => {    
 
-    const handleAddContent = () => {
-        const newContent = `${editorContent} ${component.content}`;
+    const addEditorContent = useAppStore((state) => state.addEditorContent);
 
-        setEditorContent(newContent);
-    };
+    console.log("Render")
 
     return (
         <div className="card my-2">
-            <div className="card-body" onClick={handleAddContent} >
+            <div className="card-body" onClick={() => addEditorContent(component.content)} >
                 {component.name}
             </div>
         </div>

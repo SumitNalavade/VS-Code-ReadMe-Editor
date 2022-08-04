@@ -1,30 +1,25 @@
 import create from "zustand";
 
-import components from "../components";
-import IComponent from "../utils/componentInterface";
-
 interface AppState {
     componentDrawerViewStatus: "show" | "hiding"
-    componentDrawerStatus: "added" | "popular" | "all"
+    componentDrawerStatus: "popular" | "all"
     toggleComponentDrawerViewStatus: () => void
-    setComponentDrawerStatus: (status: "added" | "popular" | "all") => void
+    setComponentDrawerStatus: (status: "popular" | "all") => void
 
-    components: IComponent[]
-
-    markdownContent: string
+    editorContent: string
     setEditorContent: (content: string) => void
+    addEditorContent: (content: string) => void
 };
 
-const useAppStore = create<AppState>()((set) => ({
+const useAppStore = create<AppState>()((set, get) => ({
     componentDrawerViewStatus: "hiding",
-    componentDrawerStatus: "added",
+    componentDrawerStatus: "popular",
     toggleComponentDrawerViewStatus: () => set((state) => ({ componentDrawerViewStatus: state.componentDrawerViewStatus === "hiding" ? "show" : "hiding"})),
     setComponentDrawerStatus: (status) => set((state) => ({ componentDrawerStatus: status })),
     
-    components,
-
-    markdownContent: "",
-    setEditorContent: (content: string) => set({ markdownContent: content })
+    editorContent: "",
+    setEditorContent: (content: string) => set({ editorContent: content }),
+    addEditorContent: (content: string) => set((state) => ({ editorContent: `${state.editorContent} ${content}` }))
 }));
 
 export default useAppStore;

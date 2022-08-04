@@ -4,7 +4,7 @@ import Editor from "@monaco-editor/react";
 import useAppStore from "../../stores/useAppStore";
 
 const MarkdownEditor: React.FC = () => {
-    const markdownContent = useAppStore((state) => state.markdownContent);
+    const editorContent = useAppStore((state) => state.editorContent);
     const setEditorContent = useAppStore((state) => state.setEditorContent);
     
     const handleChange = (value: string) => {
@@ -16,9 +16,10 @@ const MarkdownEditor: React.FC = () => {
             <Editor 
               theme="vs-dark"
               height="85vh"
+              width="45vw"
               defaultLanguage="Markdown"
-              defaultValue={markdownContent}
-              value={markdownContent}
+              defaultValue={editorContent}
+              value={editorContent}
               onChange={(value) => handleChange(value as string)}
               options={{
                 minimap: {

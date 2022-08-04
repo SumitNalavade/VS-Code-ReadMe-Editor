@@ -76,9 +76,6 @@ export class ViewLoader {
           <script>
             const vscode = acquireVsCodeApi();
           </script>
-          <script>
-            console.log('apiUserGender', apiUserGender)
-          </script>
           <script src="${bundleScriptPath}"></script>
           <script src="${zustandScriptPath}"></script>
           <script src="${reactMarkdownScriptPath}"></script>
