@@ -1,6 +1,4 @@
-import React, { useState }  from "react";
-
-import useAppStore from "./stores/useAppStore";
+import React from "react";
 
 import Layout from "./components/layout";
 import ComponentsDrawer from "./components/ComponentsDrawer";
@@ -13,7 +11,7 @@ const App = () => {
       
       <ComponentsDrawer  />
 
-      <div className="mx-4 d-flex justify-content-around" >
+      <div className="mx-4 d-flex justify-content-around pt-4" >
         <div>
           <p className="h3 text-center">Editor</p>
           <MarkdownEditor />

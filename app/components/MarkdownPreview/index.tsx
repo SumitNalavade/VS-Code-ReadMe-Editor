@@ -11,7 +11,7 @@ const MarkdownPreview: React.FC = () => {
     const previewContent =  <ReactMarkdown children={editorContent} remarkPlugins={[remarkGfm]} />
 
     return (
-        <div className="preview overflow-auto text-break" style={{ "height": "85vh", "width": "45vw" }}>
+        <div className="preview overflow-auto text-break border border-dark p-4" style={{ "height": "85vh", "width": "45vw" }}>
               { previewContent }
         </div>
     );
