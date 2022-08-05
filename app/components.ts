@@ -300,7 +300,7 @@ npm run start
         content: `
 ## Screenshots  
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://lanecdr.org/wp-content/uploads/2019/08/placeholder.png)
 `
     },
     {

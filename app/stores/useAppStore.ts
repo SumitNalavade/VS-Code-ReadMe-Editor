@@ -10,6 +10,8 @@ interface AppState {
     setEditorContent: (content: string) => void
     addEditorContent: (content: string) => void
 
+    resetEditorContent: () => void
+
     createReadMe: () => Promise<unknown>
 };
 
@@ -21,10 +23,13 @@ const useAppStore = create<AppState>()((set, get) => ({
     
     editorContent: `
 # Project Title  
-
 A brief description of what this project does and who it's for`,
     setEditorContent: (content: string) => set({ editorContent: content }),
     addEditorContent: (content: string) => set((state) => ({ editorContent: `${state.editorContent} ${content}` })),
+
+    resetEditorContent: () => set((state) => ({ editorContent: `
+# Project Title  
+A brief description of what this project does and who it's for` })),
 
     createReadMe: () => {
         const editorContent = get().editorContent;

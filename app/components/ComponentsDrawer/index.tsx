@@ -19,10 +19,10 @@ const ComponentsDrawer: React.FC = ({ }) => {
         <div className={`offcanvas offcanvas-start ${ componentDrawerViewStatus }`}>
             <div className="offcanvas-header flex justify-content-between">
                 <ul className="nav nav-pills nav-fill">
-                    <li className="nav-item mx-2" onClick={() => setComponentDrawerStatus("popular")} >
+                    <li className="nav-item mx-2 pointer" onClick={() => setComponentDrawerStatus("popular")} >
                         <a className={`nav-link ${componentDrawerStatus === "popular" ? "active" : ""}`} >Popular</a>
                     </li>
-                    <li className="nav-item mx-2" onClick={() => setComponentDrawerStatus("all")} >
+                    <li className="nav-item mx-2 pointer" onClick={() => setComponentDrawerStatus("all")} >
                         <a className={`nav-link ${componentDrawerStatus === "all" ? "active" : ""}`}>All</a>
                     </li>
                 </ul>
