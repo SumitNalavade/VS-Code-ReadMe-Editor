@@ -9,6 +9,8 @@ interface AppState {
     editorContent: string
     setEditorContent: (content: string) => void
     addEditorContent: (content: string) => void
+
+    createReadMe: () => Promise<unknown>
 };
 
 const useAppStore = create<AppState>()((set, get) => ({
@@ -19,7 +21,20 @@ const useAppStore = create<AppState>()((set, get) => ({
     
     editorContent: "",
     setEditorContent: (content: string) => set({ editorContent: content }),
-    addEditorContent: (content: string) => set((state) => ({ editorContent: `${state.editorContent} ${content}` }))
+    addEditorContent: (content: string) => set((state) => ({ editorContent: `${state.editorContent} ${content}` })),
+
+    createReadMe: () => {
+        const editorContent = get().editorContent;
+
+        const file = new Blob([editorContent], { type: "text/plain" });
+
+        return new Promise((resolve) => {
+            const reader = new FileReader()
+            reader.onloadend = () => resolve(reader.result)
+            reader.readAsDataURL(file)
+        })
+    }
+
 }));
 
 export default useAppStore;

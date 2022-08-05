@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
+import { posix } from 'path';
 
 export class ViewLoader {
   public static currentPanel?: vscode.WebviewPanel;
@@ -61,6 +62,22 @@ export class ViewLoader {
       vscode.Uri.file(path.join(this.context.extensionPath, 'node_modules', '@monaco-editor', "react", "lib", "umd", "monaco-react.min.js"))
     );
 
+    this.panel.webview.onDidReceiveMessage((message) => {      
+      const base64ReadMe = message.base64ReadMe;
+      const bufferValue = Buffer.from(base64ReadMe,"base64");
+
+      // @ts-ignore: Object is possibly 'undefined'
+      if(!vscode.workspace.workspaceFolders) {
+        return vscode.window.showErrorMessage("No workspace found!");
+      }
+
+      // @ts-ignore: Object is possibly 'undefined'
+      const folderUri = vscode.workspace.workspaceFolders[0]!.uri;
+      const fileUri = folderUri.with({ path: posix.join(folderUri.path, 'test.md') });
+      vscode.workspace.fs.writeFile(fileUri, bufferValue).then((res) => console.log("complete"));
+
+    });
+
     return `
       <!DOCTYPE html>
         <html lang="en">
@@ -81,6 +98,7 @@ export class ViewLoader {
           <script src="${reactMarkdownScriptPath}"></script>
           <script src="${remarkGfmScript}"></script>
           <script src="${monacoEditorScript}"></script>
+          <script>const vscode = acquireVsCodeApi();</script>
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
         </body>
       </html>
