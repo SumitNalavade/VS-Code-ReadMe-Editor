@@ -57,6 +57,7 @@ Any additional information goes here
     },
     {
         name: "Badges",
+        popular: true,
         content: `
 ## Badges  
 
@@ -312,6 +313,17 @@ For support, email fake@fake.com or join our Slack channel.
 `
     },
     {
+        name: "Table of Contents",
+        popular: true,
+        content: `
+# Table of contents  
+1. [Introduction](#introduction)  
+2. [Some paragraph](#paragraph1)  
+    1. [Sub paragraph](#subparagraph1)  
+3. [Another paragraph](#paragraph2)
+`
+    },
+    {
         name: "Tech Stack",
         popular: true,
         content: `
@@ -333,6 +345,7 @@ A brief description of what this project does and who it's for
     },
     {
         name: "Usage/Examples",
+        popular: true,
         content: `
 ## Usage/Examples  
 

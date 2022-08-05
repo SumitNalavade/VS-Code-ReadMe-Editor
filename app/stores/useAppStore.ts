@@ -2,9 +2,9 @@ import create from "zustand";
 
 interface AppState {
     componentDrawerViewStatus: "show" | "hiding"
-    componentDrawerStatus: "popular" | "all"
+    componentDrawerStatus: "popular" | "all" | "templates"
     toggleComponentDrawerViewStatus: () => void
-    setComponentDrawerStatus: (status: "popular" | "all") => void
+    setComponentDrawerStatus: (status: "popular" | "all" | "templates") => void
 
     editorContent: string
     setEditorContent: (content: string) => void
