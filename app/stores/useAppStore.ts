@@ -19,7 +19,10 @@ const useAppStore = create<AppState>()((set, get) => ({
     toggleComponentDrawerViewStatus: () => set((state) => ({ componentDrawerViewStatus: state.componentDrawerViewStatus === "hiding" ? "show" : "hiding"})),
     setComponentDrawerStatus: (status) => set((state) => ({ componentDrawerStatus: status })),
     
-    editorContent: "",
+    editorContent: `
+# Project Title  
+
+A brief description of what this project does and who it's for`,
     setEditorContent: (content: string) => set({ editorContent: content }),
     addEditorContent: (content: string) => set((state) => ({ editorContent: `${state.editorContent} ${content}` })),
 

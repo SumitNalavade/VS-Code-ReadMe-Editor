@@ -1,26 +1,15 @@
 import React, { useEffect } from "react";
 
-import useAppStore from "./stores/useAppStore";
-
-import Layout from "./components/layout";
+import Navbar from "./components/navbar";
 import ComponentsDrawer from "./components/ComponentsDrawer";
 import MarkdownEditor from "./components/MarkdownEditor";
 import MarkdownPreview from "./components/MarkdownPreview";
 
 const App = () => {   
-  // vscode.postMessage({ command: "download", text: "world" });
-
-  const createReadMe = useAppStore((state) => state.createReadMe);
-
-  const sendBase64ReadMeToExtension = async() => {
-    const base64ReadMe = await createReadMe();
-    
-    vscode.postMessage({ command: "base64ReadMe", base64ReadMe });
-  }
-
   return (
-    <Layout>
-      
+    <div className="container-fluid px-0">
+      <Navbar />
+
       <ComponentsDrawer  />
 
       <div className="mx-4 d-flex justify-content-around pt-4" >
@@ -31,12 +20,11 @@ const App = () => {
 
         <div>
           <p className="h3 text-center">Preview</p>
-          <button onClick={() => sendBase64ReadMeToExtension()} >Create Read Me</button>
           <MarkdownPreview />
         </div>
       </div>
 
-    </Layout>
+      </div>
   );
 };
 

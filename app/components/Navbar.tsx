@@ -22,12 +22,20 @@ const StackIcon: React.FC = () => {
 
 const Navbar: React.FC = () => {
     const toggleComponentDrawerViewStatus = useAppStore((state) => state.toggleComponentDrawerViewStatus);
+
+    const createReadMe = useAppStore((state) => state.createReadMe);
+
+    const sendBase64ReadMeToExtension = async() => {
+        const base64ReadMe = await createReadMe()
+
+        vscode.postMessage({ command: "base64ReadMe", base64ReadMe });
+    };
     
     return (
         <nav className="navbar bg-light">
             <div className="container-fluid d-flex justify-content-between">
                 <button type="button" className="btn btn-link" onClick={toggleComponentDrawerViewStatus} ><StackIcon /></button>
-                <button type="button" className="btn btn-primary d-flex align-items-center "><DownloadIcon /> Download </button>
+                <button type="button" className="btn btn-primary d-flex align-items-center" onClick={sendBase64ReadMeToExtension} ><DownloadIcon /> Download </button>
             </div>
         </nav>
     );

@@ -41,6 +41,15 @@ export class ViewLoader {
     }
   }
 
+  saveReadMeBufferToWorkspaceRoot = (readMeBuffer: Uint8Array) => {
+    if(!vscode.workspace.workspaceFolders) { return vscode.window.showErrorMessage("No workspace found 😳") }
+
+    const workspaceRootUri = vscode.workspace.workspaceFolders[0]!.uri;
+    const newReadMeUri = workspaceRootUri.with({ path: posix.join(workspaceRootUri.path, "README.md") });
+
+    vscode.workspace.fs.writeFile(newReadMeUri, readMeBuffer);
+  }
+
   render() {
     const bundleScriptPath = this.panel.webview.asWebviewUri(
       vscode.Uri.file(path.join(this.context.extensionPath, 'out', 'app', 'bundle.js'))
@@ -66,16 +75,12 @@ export class ViewLoader {
       const base64ReadMe = message.base64ReadMe;
       const bufferValue = Buffer.from(base64ReadMe,"base64");
 
-      // @ts-ignore: Object is possibly 'undefined'
-      if(!vscode.workspace.workspaceFolders) {
-        return vscode.window.showErrorMessage("No workspace found!");
+      try {
+        this.saveReadMeBufferToWorkspaceRoot(bufferValue)
+      } catch {
+        vscode.window.showErrorMessage("Something went wrong 😳")
       }
-
-      // @ts-ignore: Object is possibly 'undefined'
-      const folderUri = vscode.workspace.workspaceFolders[0]!.uri;
-      const fileUri = folderUri.with({ path: posix.join(folderUri.path, 'test.md') });
-      vscode.workspace.fs.writeFile(fileUri, bufferValue).then((res) => console.log("complete"));
-
+      
     });
 
     return `
