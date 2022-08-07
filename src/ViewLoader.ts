@@ -22,11 +22,32 @@ export class ViewLoader {
     // render webview
     this.renderWebview();
 
+    this.panel.onDidDispose(
+      () => {
+       this.dispose()
+      },
+      null,
+      this.disposables
+    );
   }
 
   private renderWebview() {
     const html = this.render();
     this.panel.webview.html = html;
+  }
+
+  public dispose() {
+    ViewLoader.currentPanel = undefined;
+
+    // Clean up our resources
+    this.panel.dispose();
+
+    while (this.disposables.length) {
+      const x = this.disposables.pop();
+      if (x) {
+        x.dispose();
+      }
+    }
   }
 
   static showWebview(context: vscode.ExtensionContext) {

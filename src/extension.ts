@@ -6,8 +6,8 @@ export function activate(context: vscode.ExtensionContext) {
     vscode.commands.registerCommand('vscode-readme-editor.open', () => {
       ViewLoader.showWebview(context);
     }),
-
   );
+  
 }
 
 export function deactivate() {}
