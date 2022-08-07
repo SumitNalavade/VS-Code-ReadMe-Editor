@@ -24,19 +24,18 @@ const components: IComponent[] = [
 
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
-| \`api_key\` | \`string\` | **Required**. Your API key |
+| \`id\` | \`string\` | **Required**. ID of the item you're requesting |
 
 #### Get item
 
 ~~~http
-  GET /api/items/$\{id}
+  POST /api/items
 ~~~
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| \`id\`      | \`string\` | **Required**. Id of item to fetch |
-#### add(num1, num2)
-Takes two numbers and returns the sum.
+| \`name\`  | \`string\` | **Required**. Name of a new item |
+| \`price\` | \`number\` | **Required**. Name of a new item |
 `
     },
     {
@@ -61,7 +60,6 @@ Any additional information goes here
         content: `
 ## Badges  
 
-Add badges from somewhere like: [shields.io](https://shields.io/)  
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)  
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://choosealicense.com/licenses/gpl-3.0/)  
 [![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](https://choosealicense.com/licenses/gpl-3.0/)
@@ -152,10 +150,9 @@ Answer 2
         content: `
 ## Features  
 
-- Light/dark mode toggle  
-- Live previews  
-- Fullscreen mode  
-- Cross platform  
+- Accessibility in VS Code  
+- Download directly to project root  
+- Live Previews    
 `
     },
     {
@@ -163,7 +160,7 @@ Answer 2
         content: `
 ## Feedback  
 
-If you have any feedback, please reach out to us at fake@fake.com
+If you have any feedback, please reach to me at vs.nalavade2003@gmail.com
 `
     },
     {
@@ -172,15 +169,15 @@ If you have any feedback, please reach out to us at fake@fake.com
 # Hi, I'm Sumit! 👋  
             
 ## 🚀 About Me  
-I'm a full stack developer...  
+I'm a student at Texas A&M (Whoop!)...  
 
 ## 🔗 Links  
-[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://katherinempeterson.com/)  
-[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)  
-[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/)  
+[![portfolio](https://img.shields.io/badge/my_portfolio-1DA1F2?style=for-the-badge&logo=ko-fi&logoColor=white)](https://sumitnalavade.vercel.app/)  
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sumit-nalavade/)  
+[![twitter](https://img.shields.io/badge/github-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SumitNalavade/)  
 
 ## 🛠 Skills  
-Javascript, HTML, CSS...  
+TypeScript, React, GraphQL...  
 
 ## Other Common Github Profile Sections  
 👩‍💻 I'm currently working on...  
@@ -251,6 +248,7 @@ What optimizations did you make in your code? E.g. refactors, performance improv
 
 Here are some related projects  
 
+[ReadMe.so](https://github.com/octokatherine/readme.so)  
 [Awesome README](https://github.com/matiassingers/awesome-readme)
 `
     },
@@ -329,9 +327,9 @@ For support, email fake@fake.com or join our Slack channel.
         content: `
 ## Tech Stack  
 
-**Client:** React, Redux, TailwindCSS  
+**Client:** TypeScript, React, Next.js  
 
-**Server:** Node, Express
+**Server:** Node, Express, GraphQL
 `
     },
     {
