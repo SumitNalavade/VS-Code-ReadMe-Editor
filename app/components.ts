@@ -5,10 +5,9 @@ const components: IComponent[] = [
         name: "Acknowledgements",
         content:`
 ## Acknowledgements  
-
 - [Readme.so](https://github.com/octokatherine/readme.so)
 - [Awesome README](https://github.com/matiassingers/awesome-readme)
-- [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)
+- [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)  
 `
     },
     {
@@ -35,23 +34,21 @@ const components: IComponent[] = [
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | \`name\`  | \`string\` | **Required**. Name of a new item |
-| \`price\` | \`number\` | **Required**. Name of a new item |
+| \`price\` | \`number\` | **Required**. Name of a new item |  
 `
     },
     {
         name: "Appendix",
         content: `
 ## Appendix  
-
-Any additional information goes here
+Any additional information goes here  
 `
     },
     {
         name: "Authors",
         content: `
 ## Authors  
-
-- [@SumitNalavade](https://www.github.com/SumitNalavade)
+- [@SumitNalavade](https://www.github.com/SumitNalavade)  
 `
     },
     {
@@ -59,17 +56,15 @@ Any additional information goes here
         popular: true,
         content: `
 ## Badges  
-
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)  
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://choosealicense.com/licenses/gpl-3.0/)  
-[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](https://choosealicense.com/licenses/gpl-3.0/)
+[![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](https://choosealicense.com/licenses/gpl-3.0/)  
         `
     },
     {
         name: "Color Reference",
         content:  `
 ## Color Reference  
-
 | Color             | Hex                                                                |  
 | ----------------- | ------------------------------------------------------------------ |  
 | Example Color | ![#0a192f](https://via.placeholder.com/10/0a192f?text=+) #0a192f |  
@@ -82,7 +77,6 @@ Any additional information goes here
         name: "Contributing",
         content: `
 ## Contributing  
-
 Contributions are always welcome!  
 
 See \`contributing.md\` for ways to get started.  
@@ -95,7 +89,6 @@ Please adhere to this project's \`code of conduct\`.
         popular: true,
         content: `
 ## Demo  
-
 Insert gif or link to demo  
 `
     },
@@ -103,32 +96,29 @@ Insert gif or link to demo
         name: "Deployment",
         content: `
 ## Deployment  
-
 To deploy this project run  
 
 \`\`\`bash
   npm run deploy
-\`\`\`
+\`\`\`  
 `
     },
     {
         name: "Documentation",
         content: `
 ## Documentation  
-
-[Documentation](https://linktodocumentation)
+[Documentation](https://linktodocumentation)  
 `
     },
     {
         name: "Environment Variables",
         content: `
 ## Environment Variables  
-
 To run this project, you will need to add the following environment variables to your .env file  
 \`API_KEY\`  
 
 \`ANOTHER_API_KEY\`  
-        `
+`
     },
     {
         name: "FAQ",
@@ -141,7 +131,7 @@ Answer 1
 
 #### Question 2  
 
-Answer 2
+Answer 2  
 `
     },
     {
@@ -149,7 +139,6 @@ Answer 2
         popular: true,
         content: `
 ## Features  
-
 - Accessibility in VS Code  
 - Download directly to project root  
 - Live Previews    
@@ -159,8 +148,7 @@ Answer 2
         name: "Feedback",
         content: `
 ## Feedback  
-
-If you have any feedback, please reach to me at vs.nalavade2003@gmail.com
+If you have any feedback, please reach to me at vs.nalavade2003@gmail.com  
 `
     },
     {
@@ -201,20 +189,18 @@ TypeScript, React, GraphQL...
         name: "Installation",
         content: `
 ## Installation  
-        
 Install my-project with npm  
         
 \`\`\`bash
   npm install my-project  
   cd my-project  
-\`\`\`
+\`\`\`  
 `
     },
     {
         name: "Lessons Learned",
         content: `
 ## Lessons Learned  
-
 What did you learn while building this project? What challenges did you face and how did you overcome them?  
 `
     },
@@ -223,40 +209,36 @@ What did you learn while building this project? What challenges did you face and
         popular: true,
         content: `
 ## License  
-
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](https://choosealicense.com/licenses/mit/)  
 `
     },
     {
         name: "Logo",
         content: `
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
+![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)  
 `
     },
     {
         name: "Optimizations",
         content: `
 ## Optimizations  
-
-What optimizations did you make in your code? E.g. refactors, performance improvements, accessibility
+What optimizations did you make in your code? E.g. refactors, performance improvements, accessibility  
 `
     },
     {
         name: "Related",
         content: `
 ## Related  
-
 Here are some related projects  
 
 [ReadMe.so](https://github.com/octokatherine/readme.so)  
-[Awesome README](https://github.com/matiassingers/awesome-readme)
+[Awesome README](https://github.com/matiassingers/awesome-readme)  
 `
     },
     {
         name: "Roadmap",
         content: `
 ## Roadmap  
-
 - Additional browser support  
 
 - Add more integrations  
@@ -267,7 +249,6 @@ Here are some related projects
         popular: true,
         content: `
 ## Run Locally  
-
 Clone the project  
 
 ~~~bash  
@@ -290,24 +271,22 @@ Start the server
 
 ~~~bash  
 npm run start
-~~~
+~~~  
 `
     },
     {
-        name: "Screenshots",
+        name: "Images",
         popular: true,
         content: `
 ## Screenshots  
-
-![App Screenshot](https://lanecdr.org/wp-content/uploads/2019/08/placeholder.png)
+![App Screenshot](https://lanecdr.org/wp-content/uploads/2019/08/placeholder.png)  
 `
     },
     {
         name: "Support",
         content: `
 ## Support  
-
-For support, email fake@fake.com or join our Slack channel.
+For support, email fake@fake.com or join our Slack channel.  
 `
     },
     {
@@ -318,7 +297,7 @@ For support, email fake@fake.com or join our Slack channel.
 1. [Introduction](#introduction)  
 2. [Some paragraph](#paragraph1)  
     1. [Sub paragraph](#subparagraph1)  
-3. [Another paragraph](#paragraph2)
+3. [Another paragraph](#paragraph2)  
 `
     },
     {
@@ -326,10 +305,9 @@ For support, email fake@fake.com or join our Slack channel.
         popular: true,
         content: `
 ## Tech Stack  
-
 **Client:** TypeScript, React, Next.js  
 
-**Server:** Node, Express, GraphQL
+**Server:** Node, Express, GraphQL  
 `
     },
     {
@@ -337,8 +315,7 @@ For support, email fake@fake.com or join our Slack channel.
         popular: true,
         content: `
 # Project Title  
-
-A brief description of what this project does and who it's for
+A brief description of what this project does and who it's for  
 `
     },
     {
@@ -346,12 +323,11 @@ A brief description of what this project does and who it's for
         popular: true,
         content: `
 ## Usage/Examples  
-
 ~~~javascript  
   import Component from 'my-project'
 
   console.log("Hello World")
-~~~
+~~~  
 `
     }
     

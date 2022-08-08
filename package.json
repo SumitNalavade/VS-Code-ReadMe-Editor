@@ -71,9 +71,11 @@
   },
   "dependencies": {
     "@monaco-editor/react": "^4.4.5",
+    "@types/react-dropzone": "^5.1.0",
     "monaco-editor": "^0.33.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-dropzone": "^14.2.2",
     "react-markdown": "^8.0.3",
     "remark-gfm": "^3.0.1",
     "zustand": "^4.0.0"

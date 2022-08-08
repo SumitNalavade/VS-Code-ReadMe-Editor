@@ -8,16 +8,13 @@ import ComponentsDrawerComponent from "./componentsDrawerComponent";
 
 const ComponentsDrawer: React.FC = ({ }) => {
 
-    const componentDrawerViewStatus = useAppStore((state) => state.componentDrawerViewStatus);
-    const toggleComponentDrawerViewStatus = useAppStore((state) => state.toggleComponentDrawerViewStatus);
-
     const componentDrawerStatus = useAppStore((state) => state.componentDrawerStatus);
     const setComponentDrawerStatus = useAppStore((state) => state.setComponentDrawerStatus);
     
     const renderComponents = componentDrawerStatus === "all" ? allComponents : componentDrawerStatus === "popular" ? allComponents.filter((component) => component.popular) : templates
 
     return (
-        <div className={`offcanvas offcanvas-start ${ componentDrawerViewStatus }`}>
+        <div className="offcanvas offcanvas-start" id="offcanvasExample" >
             <div className="offcanvas-header flex justify-content-between">
                 <ul className="nav nav-pills nav-fill">
                     <li className="nav-item mx-2 pointer" onClick={() => setComponentDrawerStatus("popular")} >
@@ -30,7 +27,7 @@ const ComponentsDrawer: React.FC = ({ }) => {
                         <a className={`nav-link ${componentDrawerStatus === "templates" ? "active" : ""}`} >Templates</a>
                     </li>
                 </ul>
-                <button type="button" className="btn-close nav-link" onClick={toggleComponentDrawerViewStatus}></button>
+                <button type="button" className="btn-close nav-link" data-bs-dismiss="offcanvas"></button>
             </div>
             <div className="offcanvas-body">
                 { renderComponents.map((component) => {

@@ -1,9 +1,7 @@
 import create from "zustand";
 
 interface AppState {
-    componentDrawerViewStatus: "show" | "hiding"
     componentDrawerStatus: "popular" | "all" | "templates"
-    toggleComponentDrawerViewStatus: () => void
     setComponentDrawerStatus: (status: "popular" | "all" | "templates") => void
 
     editorContent: string
@@ -13,12 +11,12 @@ interface AppState {
     resetEditorContent: () => void
 
     createReadMe: () => Promise<unknown>
+
+    sendBase64ReadMeToExtension: () => void
 };
 
 const useAppStore = create<AppState>()((set, get) => ({
-    componentDrawerViewStatus: "hiding",
     componentDrawerStatus: "popular",
-    toggleComponentDrawerViewStatus: () => set((state) => ({ componentDrawerViewStatus: state.componentDrawerViewStatus === "hiding" ? "show" : "hiding"})),
     setComponentDrawerStatus: (status) => set((state) => ({ componentDrawerStatus: status })),
     
     editorContent: `
@@ -41,6 +39,14 @@ A brief description of what this project does and who it's for` })),
             reader.onloadend = () => resolve(reader.result)
             reader.readAsDataURL(file)
         })
+    },
+
+    sendBase64ReadMeToExtension: async() => {
+        const createReadMe = get().createReadMe;
+
+        const base64ReadMe = await createReadMe()
+
+        vscode.postMessage({ command: "saveReadMe", base64ReadMe });
     }
 
 }));

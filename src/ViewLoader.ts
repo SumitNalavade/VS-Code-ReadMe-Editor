@@ -92,15 +92,24 @@ export class ViewLoader {
       vscode.Uri.file(path.join(this.context.extensionPath, 'node_modules', '@monaco-editor', "react", "lib", "umd", "monaco-react.min.js"))
     );
 
-    this.panel.webview.onDidReceiveMessage((message) => {      
-      const base64ReadMe = message.base64ReadMe;
-      const bufferValue = Buffer.from(base64ReadMe,"base64");
+    const dropzoneScript = this.panel.webview.asWebviewUri(
+      vscode.Uri.file(path.join(this.context.extensionPath, 'node_modules', 'react-dropzone', "src", "index.js"))
+    );
 
-      try {
-        this.saveReadMeBufferToWorkspaceRoot(bufferValue)
-      } catch {
-        vscode.window.showErrorMessage("Something went wrong 😳")
+    this.panel.webview.onDidReceiveMessage((message) => {        
+      if(message.command === "saveReadMe") {
+        const base64ReadMe = message.base64ReadMe;
+        const bufferValue = Buffer.from(base64ReadMe,"base64");
+  
+        try {
+          this.saveReadMeBufferToWorkspaceRoot(bufferValue)
+        } catch {
+          vscode.window.showErrorMessage("Something went wrong 😳")
+        } 
+      } else {
+        vscode.window.showInformationMessage(message.message);
       }
+
       
     });
 
@@ -124,6 +133,7 @@ export class ViewLoader {
           <script src="${reactMarkdownScriptPath}"></script>
           <script src="${remarkGfmScript}"></script>
           <script src="${monacoEditorScript}"></script>
+          <script src="${dropzoneScript}"></script>
           <script>const vscode = acquireVsCodeApi();</script>
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
         </body>

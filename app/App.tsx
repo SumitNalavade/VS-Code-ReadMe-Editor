@@ -1,19 +1,21 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import useAppStore from "./stores/useAppStore";
 
-import Navbar from "./components/navbar";
+import Navbar from "./components/Navbar";
+import UploadModal from "./components/UploadModal";
 import ComponentsDrawer from "./components/ComponentsDrawer";
 import MarkdownEditor from "./components/MarkdownEditor";
 import MarkdownPreview from "./components/MarkdownPreview";
 
 const App = () => {   
-
   const resetEditorContent = useAppStore((state) => state.resetEditorContent);
-
+ 
   return (
     <div className="container-fluid px-0">
-      <Navbar />
+       <Navbar />
+
+    <UploadModal />
 
       <ComponentsDrawer  />
 
