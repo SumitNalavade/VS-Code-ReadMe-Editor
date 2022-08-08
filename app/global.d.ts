@@ -1,5 +1,5 @@
 interface vscode {
-    postMessage: (message: any) => void
+    postMessage: (content: { command: string, content: any }) => void
 }
 
 declare global {

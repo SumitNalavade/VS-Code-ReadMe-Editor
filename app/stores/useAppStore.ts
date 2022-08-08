@@ -50,7 +50,7 @@ A brief description of what this project does and who it's for` })),
 
         const base64ReadMe = await createReadMe()
 
-        vscode.postMessage({ command: "saveReadMe", base64ReadMe });
+        vscode.postMessage({ command: "saveReadMe", content: base64ReadMe });
     }
 
 }));

@@ -12,8 +12,8 @@ const Navbar: React.FC = () => {
             <div className="container-fluid d-flex justify-content-between">
                 <button data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" type="button" className="btn btn-link"  ><StackIcon /></button>
                 <div className="d-flex justify-content-around">
-                  <button type="button" className="btn btn-success d-flex align-items-center mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal" ><UploadIcon /> Import </button>
-                  <button type="button" className="btn btn-primary d-flex align-items-center mx-2" onClick={sendBase64ReadMeToExtension} ><DownloadIcon /> Download </button>
+                  <button type="button" className="btn text-white d-flex align-items-center mx-2" data-bs-toggle="modal" data-bs-target="#exampleModal" style={{ "backgroundColor": "#06d6a0" }}  ><UploadIcon /> Import </button>
+                  <button type="button" className="btn text-white d-flex align-items-center mx-2" onClick={sendBase64ReadMeToExtension} style={{ "backgroundColor": "#ef476f" }} ><DownloadIcon /> Save </button>
                 </div>
             </div>
         </nav>

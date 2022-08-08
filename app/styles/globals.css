@@ -80,3 +80,12 @@ select {
 .card:hover, .pointer { 
   cursor: pointer;
 }
+
+.nav-link {
+  color: #ef476f !important
+}
+
+.navLinkSelected {
+  background-color: #ef476f !important;
+  color: white !important
+}

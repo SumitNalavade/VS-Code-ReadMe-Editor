@@ -96,21 +96,25 @@ export class ViewLoader {
       vscode.Uri.file(path.join(this.context.extensionPath, 'node_modules', 'react-dropzone', "src", "index.js"))
     );
 
-    this.panel.webview.onDidReceiveMessage((message) => {        
-      if(message.command === "saveReadMe") {
-        const base64ReadMe = message.base64ReadMe;
-        const bufferValue = Buffer.from(base64ReadMe,"base64");
-  
-        try {
-          this.saveReadMeBufferToWorkspaceRoot(bufferValue)
-        } catch {
-          vscode.window.showErrorMessage("Something went wrong 😳")
-        } 
-      } else {
-        vscode.window.showInformationMessage(message.message);
-      }
-
+    this.panel.webview.onDidReceiveMessage((message) => {   
+      const { command, content } = message
       
+      switch (command) {
+        case "saveReadMe":
+          const bufferValue = Buffer.from(content,"base64");
+          try {
+            this.saveReadMeBufferToWorkspaceRoot(bufferValue)
+          } catch {
+            vscode.window.showErrorMessage("Something went wrong 😳")
+          }
+          break;
+        case "info":
+          vscode.window.showInformationMessage(content);
+          break;
+        case "error":
+          vscode.window.showErrorMessage(content);
+          break;
+      }
     });
 
     return `

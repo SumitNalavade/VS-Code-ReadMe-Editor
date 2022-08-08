@@ -14,8 +14,11 @@ const UploadModal: React.FC = () => {
     const onDrop = useCallback((file: File[]) => {
         const uploadedFile = file[0];
     
-        extractFileContents(uploadedFile);
-    
+        try {
+          extractFileContents(uploadedFile);
+        } catch  {
+          vscode.postMessage({ command: "error", content: "Invalid File! 😳" })
+        }
     }, []);
     const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop, multiple : false, accept: { 'text/plain': [".md"] }}) //React-dropzone props
 
@@ -57,7 +60,7 @@ const UploadModal: React.FC = () => {
                   </div>
                 </div>
                 <div className="modal-footer">
-                  <button type="button" className="btn btn-success d-flex align-items-center" data-bs-dismiss="modal" onClick={handleImportReadMe} > <UploadIcon /> Import</button>
+                  <button type="button" className="btn text-white d-flex align-items-center" data-bs-dismiss="modal" onClick={handleImportReadMe} style={{ "backgroundColor": "#06d6a0" }} > <UploadIcon /> Import</button>
                 </div>
               </div>
             </div>
