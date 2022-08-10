@@ -62,6 +62,7 @@ const UploadModal: React.FC = () => {
               className="btn-close"
               data-bs-dismiss="modal"
               aria-label="Close"
+              onClick={() => setUploadedFileContent("")}
             ></button>
           </div>
           <div className="modal-body">
