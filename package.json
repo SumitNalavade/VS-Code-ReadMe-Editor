@@ -72,6 +72,7 @@
   "dependencies": {
     "@monaco-editor/react": "^4.4.5",
     "@types/react-dropzone": "^5.1.0",
+    "atob": "^2.1.2",
     "monaco-editor": "^0.33.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

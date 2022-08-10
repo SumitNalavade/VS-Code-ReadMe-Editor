@@ -63,6 +63,7 @@ export class ViewLoader {
   }
 
   saveReadMeBufferToWorkspaceRoot = (readMeBuffer: Uint8Array) => {
+
     if (!vscode.workspace.workspaceFolders) {
       return vscode.window.showErrorMessage('No workspace found 😳');
     }
@@ -118,10 +119,12 @@ export class ViewLoader {
 
     this.panel.webview.onDidReceiveMessage(message => {
       const { command, content } = message;
-
+      
       switch (command) {
         case 'saveReadMe':
-          const bufferValue = Buffer.from(content, 'base64');
+          const strippedBase64 = (content as string).replace("data:text/plain;base64,", "");
+
+          const bufferValue = Buffer.from(strippedBase64, 'base64');
           try {
             this.saveReadMeBufferToWorkspaceRoot(bufferValue);
             vscode.window.showInformationMessage('ReadMe saved to root successfully 😊');
