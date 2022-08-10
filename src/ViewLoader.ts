@@ -24,7 +24,7 @@ export class ViewLoader {
 
     this.panel.onDidDispose(
       () => {
-       this.dispose()
+        this.dispose();
       },
       null,
       this.disposables
@@ -63,13 +63,17 @@ export class ViewLoader {
   }
 
   saveReadMeBufferToWorkspaceRoot = (readMeBuffer: Uint8Array) => {
-    if(!vscode.workspace.workspaceFolders) { return vscode.window.showErrorMessage("No workspace found 😳") }
+    if (!vscode.workspace.workspaceFolders) {
+      return vscode.window.showErrorMessage('No workspace found 😳');
+    }
 
     const workspaceRootUri = vscode.workspace.workspaceFolders[0]!.uri;
-    const newReadMeUri = workspaceRootUri.with({ path: posix.join(workspaceRootUri.path, "README.md") });
+    const newReadMeUri = workspaceRootUri.with({
+      path: posix.join(workspaceRootUri.path, 'README.md'),
+    });
 
     vscode.workspace.fs.writeFile(newReadMeUri, readMeBuffer);
-  }
+  };
 
   render() {
     const bundleScriptPath = this.panel.webview.asWebviewUri(
@@ -81,37 +85,54 @@ export class ViewLoader {
     );
 
     const reactMarkdownScriptPath = this.panel.webview.asWebviewUri(
-      vscode.Uri.file(path.join(this.context.extensionPath, 'node_modules', 'react-markdown', 'index.js'))
+      vscode.Uri.file(
+        path.join(this.context.extensionPath, 'node_modules', 'react-markdown', 'index.js')
+      )
     );
 
     const remarkGfmScript = this.panel.webview.asWebviewUri(
-      vscode.Uri.file(path.join(this.context.extensionPath, 'node_modules', 'remark-gfm', "index.js"))
+      vscode.Uri.file(
+        path.join(this.context.extensionPath, 'node_modules', 'remark-gfm', 'index.js')
+      )
     );
 
     const monacoEditorScript = this.panel.webview.asWebviewUri(
-      vscode.Uri.file(path.join(this.context.extensionPath, 'node_modules', '@monaco-editor', "react", "lib", "umd", "monaco-react.min.js"))
+      vscode.Uri.file(
+        path.join(
+          this.context.extensionPath,
+          'node_modules',
+          '@monaco-editor',
+          'react',
+          'lib',
+          'umd',
+          'monaco-react.min.js'
+        )
+      )
     );
 
     const dropzoneScript = this.panel.webview.asWebviewUri(
-      vscode.Uri.file(path.join(this.context.extensionPath, 'node_modules', 'react-dropzone', "src", "index.js"))
+      vscode.Uri.file(
+        path.join(this.context.extensionPath, 'node_modules', 'react-dropzone', 'src', 'index.js')
+      )
     );
 
-    this.panel.webview.onDidReceiveMessage((message) => {   
-      const { command, content } = message
-      
+    this.panel.webview.onDidReceiveMessage(message => {
+      const { command, content } = message;
+
       switch (command) {
-        case "saveReadMe":
-          const bufferValue = Buffer.from(content,"base64");
+        case 'saveReadMe':
+          const bufferValue = Buffer.from(content, 'base64');
           try {
-            this.saveReadMeBufferToWorkspaceRoot(bufferValue)
+            this.saveReadMeBufferToWorkspaceRoot(bufferValue);
+            vscode.window.showInformationMessage('ReadMe saved to root successfully 😊');
           } catch {
-            vscode.window.showErrorMessage("Something went wrong 😳")
+            vscode.window.showErrorMessage('Something went wrong 😳');
           }
           break;
-        case "info":
+        case 'info':
           vscode.window.showInformationMessage(content);
           break;
-        case "error":
+        case 'error':
           vscode.window.showErrorMessage(content);
           break;
       }

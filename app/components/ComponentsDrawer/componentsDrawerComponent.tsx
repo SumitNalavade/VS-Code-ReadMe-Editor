@@ -1,24 +1,23 @@
-import React from "react";
+import React from 'react';
 
-import useAppStore from "../../stores/useAppStore";
+import useAppStore from '../../stores/useAppStore';
 
-import IComponent from "../../utils/componentInterface";
+import IComponent from '../../utils/componentInterface';
 
 interface Props {
-    component: IComponent
+  component: IComponent;
 }
 
-const ComponentsDrawerComponent: React.FC<Props> = ({ component }) => {    
+const ComponentsDrawerComponent: React.FC<Props> = ({ component }) => {
+  const addEditorContent = useAppStore(state => state.addEditorContent);
 
-    const addEditorContent = useAppStore((state) => state.addEditorContent);
-
-    return (
-        <div className="card my-2">
-            <div className="card-body" onClick={() => addEditorContent(component.content)} >
-                {component.name}
-            </div>
-        </div>
-    );  
+  return (
+    <div className="card my-2">
+      <div className="card-body" onClick={() => addEditorContent(component.content)}>
+        {component.name}
+      </div>
+    </div>
+  );
 };
 
 export default ComponentsDrawerComponent;

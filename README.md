@@ -1,4 +1,4 @@
-u«Zµìmþ™ZŠvÚ±î¸ 
+u«Zµìmþ™ZŠvÚ±î¸uï¿½Zï¿½ï¿½mï¿½ï¿½Zï¿½vÚ±ï¿½ 
 # Project Title  
 
 A brief description of what this project does and who it's for
@@ -16,11 +16,7 @@ A brief description of what this project does and who it's for
 ## Demo  
 
 Insert gif or link to demo  
- 
-## Screenshots  
-
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
- 
+  
 ## Run Locally  
 
 Clone the project  

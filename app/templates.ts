@@ -1,9 +1,9 @@
-import ITemplate from "./utils/templateInterface"
+import ITemplate from './utils/templateInterface';
 
 const templates: ITemplate[] = [
-    {
-        name: "Minimal",
-        content: `
+  {
+    name: 'Minimal',
+    content: `
 # Project Title  
 This is an example ReadMe with light selections.  
 
@@ -44,11 +44,11 @@ Please adhere to this project's \`code of conduct\`.
 ## License  
 
 [MIT](https://choosealicense.com/licenses/mit/)
-`
-    },
-    {
-      name: "Maximal",
-      content: `
+`,
+  },
+  {
+    name: 'Maximal',
+    content: `
 # Project Title  
 This is an example of an in-depth ReadMe.  
 
@@ -132,8 +132,8 @@ If you have any feedback, please reach out to us at fake@fake.com
 ## License  
 
 [MIT](https://choosealicense.com/licenses/mit/)
-`
-    }
-]
+`,
+  },
+];
 
 export default templates;
