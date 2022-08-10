@@ -1,8 +1,8 @@
-import * as vscode from 'vscode';
-import * as path from 'path';
-import { posix } from 'path';
+import * as vscode from "vscode";
+import * as path from "path";
+import { posix } from "path";
 
-export class ViewLoader {
+export class MainViewLoader {
   public static currentPanel?: vscode.WebviewPanel;
 
   private panel: vscode.WebviewPanel;
@@ -13,11 +13,18 @@ export class ViewLoader {
     this.context = context;
     this.disposables = [];
 
-    this.panel = vscode.window.createWebviewPanel('reactApp', 'ReadMe Editor', vscode.ViewColumn.One, {
-      enableScripts: true,
-      retainContextWhenHidden: true,
-      localResourceRoots: [vscode.Uri.file(path.join(this.context.extensionPath, 'out', 'app'))],
-    });
+    this.panel = vscode.window.createWebviewPanel(
+      "reactApp",
+      "ReadMe Editor",
+      vscode.ViewColumn.One,
+      {
+        enableScripts: true,
+        retainContextWhenHidden: true,
+        localResourceRoots: [
+          vscode.Uri.file(path.join(this.context.extensionPath, "out", "app")),
+        ],
+      }
+    );
 
     // render webview
     this.renderWebview();
@@ -37,7 +44,7 @@ export class ViewLoader {
   }
 
   public dispose() {
-    ViewLoader.currentPanel = undefined;
+    MainViewLoader.currentPanel = undefined;
 
     // Clean up our resources
     this.panel.dispose();
@@ -63,14 +70,13 @@ export class ViewLoader {
   }
 
   saveReadMeBufferToWorkspaceRoot = (readMeBuffer: Uint8Array) => {
-
     if (!vscode.workspace.workspaceFolders) {
-      return vscode.window.showErrorMessage('No workspace found 😳');
+      return vscode.window.showErrorMessage("No workspace found 😳");
     }
 
     const workspaceRootUri = vscode.workspace.workspaceFolders[0]!.uri;
     const newReadMeUri = workspaceRootUri.with({
-      path: posix.join(workspaceRootUri.path, 'README.md'),
+      path: posix.join(workspaceRootUri.path, "README.md"),
     });
 
     vscode.workspace.fs.writeFile(newReadMeUri, readMeBuffer);
@@ -78,22 +84,41 @@ export class ViewLoader {
 
   render() {
     const bundleScriptPath = this.panel.webview.asWebviewUri(
-      vscode.Uri.file(path.join(this.context.extensionPath, 'out', 'app', 'bundle.js'))
+      vscode.Uri.file(
+        path.join(this.context.extensionPath, "out", "app", "bundle.js")
+      )
     );
 
     const zustandScriptPath = this.panel.webview.asWebviewUri(
-      vscode.Uri.file(path.join(this.context.extensionPath, 'node_modules', 'zustand', 'index.js'))
+      vscode.Uri.file(
+        path.join(
+          this.context.extensionPath,
+          "node_modules",
+          "zustand",
+          "index.js"
+        )
+      )
     );
 
     const reactMarkdownScriptPath = this.panel.webview.asWebviewUri(
       vscode.Uri.file(
-        path.join(this.context.extensionPath, 'node_modules', 'react-markdown', 'index.js')
+        path.join(
+          this.context.extensionPath,
+          "node_modules",
+          "react-markdown",
+          "index.js"
+        )
       )
     );
 
     const remarkGfmScript = this.panel.webview.asWebviewUri(
       vscode.Uri.file(
-        path.join(this.context.extensionPath, 'node_modules', 'remark-gfm', 'index.js')
+        path.join(
+          this.context.extensionPath,
+          "node_modules",
+          "remark-gfm",
+          "index.js"
+        )
       )
     );
 
@@ -101,41 +126,52 @@ export class ViewLoader {
       vscode.Uri.file(
         path.join(
           this.context.extensionPath,
-          'node_modules',
-          '@monaco-editor',
-          'react',
-          'lib',
-          'umd',
-          'monaco-react.min.js'
+          "node_modules",
+          "@monaco-editor",
+          "react",
+          "lib",
+          "umd",
+          "monaco-react.min.js"
         )
       )
     );
 
     const dropzoneScript = this.panel.webview.asWebviewUri(
       vscode.Uri.file(
-        path.join(this.context.extensionPath, 'node_modules', 'react-dropzone', 'src', 'index.js')
+        path.join(
+          this.context.extensionPath,
+          "node_modules",
+          "react-dropzone",
+          "src",
+          "index.js"
+        )
       )
     );
 
-    this.panel.webview.onDidReceiveMessage(message => {
+    this.panel.webview.onDidReceiveMessage((message) => {
       const { command, content } = message;
-      
-      switch (command) {
-        case 'saveReadMe':
-          const strippedBase64 = (content as string).replace("data:text/plain;base64,", "");
 
-          const bufferValue = Buffer.from(strippedBase64, 'base64');
+      switch (command) {
+        case "saveReadMe":
+          const strippedBase64 = (content as string).replace(
+            "data:text/plain;base64,",
+            ""
+          );
+
+          const bufferValue = Buffer.from(strippedBase64, "base64");
           try {
             this.saveReadMeBufferToWorkspaceRoot(bufferValue);
-            vscode.window.showInformationMessage('ReadMe saved to root successfully 😊');
+            vscode.window.showInformationMessage(
+              "ReadMe saved to root successfully 😊"
+            );
           } catch {
-            vscode.window.showErrorMessage('Something went wrong 😳');
+            vscode.window.showErrorMessage("Something went wrong 😳");
           }
           break;
-        case 'info':
+        case "info":
           vscode.window.showInformationMessage(content);
           break;
-        case 'error':
+        case "error":
           vscode.window.showErrorMessage(content);
           break;
       }

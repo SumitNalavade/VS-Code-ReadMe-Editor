@@ -24,7 +24,7 @@
   ],
   "activationEvents": [
     "onStartupFinished",
-    "onView:readme-sidebar-view"
+    "onView:vstodo-sidebar"
   ],
   "main": "./out/src/extension.js",
   "contributes": {
@@ -37,19 +37,20 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "readme-sidebar-view",
-          "title": "Readme Editor",
+          "id": "vstodo-sidebar-view",
+          "title": "VSTodo",
           "icon": "/icon.svg"
         }
       ]
     },
     "views": {
-      "readme-sidebar-view": [
+      "vstodo-sidebar-view": [
         {
-          "id": "readme-sidebar-view",
-          "name": "vscode-readme-editor",
+          "type": "webview",
+          "id": "vstodo-sidebar",
+          "name": "VSTodo",
           "icon": "/icon.svg",
-          "contextualTitle": "Readme Editor"
+          "contextualTitle": "VSTodo"
         }
       ]
     }
