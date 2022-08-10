@@ -1,7 +1,13 @@
 {
   "name": "vscode-readme-editor",
-  "displayName": "VS Code ReadMe Editor",
+  "displayName": "VS Code Readme Editor",
   "description": "Create, Customize and Commit your project's ReadMe in VS Code with an easy to use visual interface",
+  "author": {
+    "name": "Sumit Nalavade"
+  },
+  "publisher": "Sumit Nalavade",
+  "icon": "logo.png",
+  "license": "MIT",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.52.0"
@@ -10,16 +16,15 @@
     "Other"
   ],
   "keywords": [
-    "vscode",
-    "vscode-extension",
     "Readme",
-    "ReadMe",
     "ReadMe generator",
     "ReadMe editor",
-    "ReadMe maker"
+    "ReadMe maker",
+    "ReadMe.so"
   ],
   "activationEvents": [
-    "onStartupFinished"
+    "onStartupFinished",
+    "onView:readme-sidebar-view"
   ],
   "main": "./out/src/extension.js",
   "contributes": {
@@ -28,7 +33,26 @@
         "command": "vscode-readme-editor.open",
         "title": "VS Code ReadMe Editor"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "readme-sidebar-view",
+          "title": "Readme Editor",
+          "icon": "/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "readme-sidebar-view": [
+        {
+          "id": "readme-sidebar-view",
+          "name": "vscode-readme-editor",
+          "icon": "/icon.svg",
+          "contextualTitle": "Readme Editor"
+        }
+      ]
+    }
   },
   "repository": {
     "type": "git",
