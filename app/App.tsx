@@ -2,9 +2,9 @@ import React from 'react';
 
 import useAppStore from './stores/useAppStore';
 
-import { ResetIcon } from './components/icons';
 import Navbar from './components/Navbar';
 import UploadModal from './components/UploadModal';
+import ComponentDescriptionModal from './components/ComponentsDrawer/componentDescriptionModal';
 import ComponentsDrawer from './components/ComponentsDrawer';
 import MarkdownEditor from './components/MarkdownEditor';
 import MarkdownPreview from './components/MarkdownPreview';
@@ -17,6 +17,7 @@ const App = () => {
       <Navbar />
 
       <UploadModal />
+      <ComponentDescriptionModal />
 
       <ComponentsDrawer />
 

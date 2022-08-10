@@ -9,6 +9,10 @@ const components: IComponent[] = [
 - [Awesome README](https://github.com/matiassingers/awesome-readme)
 - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)  
 `,
+  description: `
+Acknowledgements are a way to give credit and thanks if you used someone else's code or were just inspired by someone else's work.  
+Provide a title and link to some resources.  
+`
   },
   {
     name: 'API Reference',
@@ -36,6 +40,11 @@ const components: IComponent[] = [
 | \`name\`  | \`string\` | **Required**. Name of a new item |
 | \`price\` | \`number\` | **Required**. Name of a new item |  
 `,
+description: `
+API references with proper documentation are crucial when deploying public APIs.  
+At a minimum, be sure to include the parameters and type of the parameter for each route.  
+You can use this component to display properly formatted tables for each route.
+`
   },
   {
     name: 'Appendix',
@@ -43,6 +52,9 @@ const components: IComponent[] = [
 ## Appendix  
 Any additional information goes here  
 `,
+description: `
+An appendix can be used to include any additional information that a reader would need or find interesting
+`
   },
   {
     name: 'Authors',
@@ -59,7 +71,12 @@ Any additional information goes here
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)  
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://choosealicense.com/licenses/gpl-3.0/)  
 [![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](https://choosealicense.com/licenses/gpl-3.0/)  
-        `,
+`,
+description: `
+Badge allow readers to view the current state of your project.  
+They can be used to display your projects license, number of starts and deployment status  
+[Popular Badges](https://dev.to/envoy_/150-badges-for-github-pnk)
+`
   },
   {
     name: 'Color Reference',
@@ -83,6 +100,11 @@ See \`contributing.md\` for ways to get started.
 
 Please adhere to this project's \`code of conduct\`.  
 `,
+description: `
+A contributing section in a ReadMe is crucial to open source projects.  
+They allow you to specify some guidelines on contributing for those who are new to your project.  
+You can make a 'CONTRIBUTING.md' file directly in VS Code using this editor!
+`
   },
   {
     name: 'Demo',
@@ -119,6 +141,11 @@ To run this project, you will need to add the following environment variables to
 
 \`ANOTHER_API_KEY\`  
 `,
+description: `
+A section for environment variables are crucial to open source projects.  
+They allow contributors to setup a local development environment with anything they may need.  
+Be sure to list how contributors can tokens like API Keys and more.
+`
   },
   {
     name: 'FAQ',
@@ -184,18 +211,13 @@ TypeScript, React, GraphQL...
 
 ⚡️ Fun fact...  
 `,
-  },
-  {
-    name: 'Installation',
-    content: `
-## Installation  
-Install my-project with npm  
-        
-\`\`\`bash
-  npm install my-project  
-  cd my-project  
-\`\`\`  
-`,
+description: `
+You can add a banner to your GitHub profile by creating a new repo with the same name as your username.  
+This banner allows visitors to get to know you better.  
+Add a ReadMe to the repo with this component to make it visible.
+
+[How to create a GitHub profile ReadMe](https://dev.to/github/how-to-create-a-github-profile-readme-jha)
+`
   },
   {
     name: 'Lessons Learned',
@@ -203,6 +225,10 @@ Install my-project with npm
 ## Lessons Learned  
 What did you learn while building this project? What challenges did you face and how did you overcome them?  
 `,
+description: `
+A 'Lessons Learned' component is great for projects where you've tried something new.  
+This can be anything from a couple words on some new technologies you tried or can be a full analysis of the problems you experienced and how you overcame them.
+`
   },
   {
     name: 'License',
@@ -211,6 +237,10 @@ What did you learn while building this project? What challenges did you face and
 ## License  
 [MIT](https://choosealicense.com/licenses/mit/)  
 `,
+description: `
+Make sure to add a license to your project, and a section to your ReadMe to protect your work and to allow visitors to use it.  
+[Choose a License](https://choosealicense.com/)  
+`
   },
   {
     name: 'Logo',
@@ -273,6 +303,11 @@ Start the server
 npm run start
 ~~~  
 `,
+description: `
+A 'Run Locally' section in a ReadMe is crucial for open source projects.  
+This component allows contributors to install and run your project locally to work on contributions.  
+Make sure to describe all the steps necessary to getting your project up and running locally.
+`
   },
   {
     name: 'Images',

@@ -18,7 +18,7 @@ const ComponentsDrawer: React.FC = ({}) => {
       : templates;
 
   return (
-    <div className="offcanvas offcanvas-start" id="offcanvasExample">
+    <div className="offcanvas offcanvas-start" id="offcanvasDrawer">
       <div className="offcanvas-header flex justify-content-between">
         <ul className="nav nav-pills nav-fill">
           <li className="nav-item mx-2 pointer" onClick={() => setComponentDrawerStatus('popular')}>

@@ -1,8 +1,12 @@
 import create from 'zustand';
+import IComponent from '../utils/componentInterface';
 
 interface AppState {
   componentDrawerStatus: 'popular' | 'all' | 'templates';
   setComponentDrawerStatus: (status: 'popular' | 'all' | 'templates') => void;
+
+  selectedComponent: IComponent | null;
+  setSelectedComponent: (component: IComponent) => void
 
   editorContent: string;
   setEditorContent: (content: string) => void;
@@ -21,6 +25,9 @@ const useAppStore = create<AppState>()((set, get) => ({
   componentDrawerStatus: 'popular',
   setComponentDrawerStatus: status => set(state => ({ componentDrawerStatus: status })),
 
+  selectedComponent: null,
+  setSelectedComponent: (component) => set((state) => ({ selectedComponent: component })),
+
   editorContent: `
 # VS Code ReadMe Editor 📝  
 Import your existing ReadMe using the import button on the top right corner of the navbar, 
@@ -37,11 +44,11 @@ on the top left corner of the navbar.
 Once you're done, click on the save button to directly save your ReadMe to your
 project's root directory!
 `,
-  setEditorContent: (content: string) => set({ editorContent: content }),
-  addEditorContent: (content: string) =>
+  setEditorContent: (content) => set({ editorContent: content }),
+  addEditorContent: (content) =>
     set(state => ({ editorContent: `${state.editorContent} ${content}` })),
 
-  importReadMe: (markdownContent: string) => set(state => ({ editorContent: markdownContent })),
+  importReadMe: (markdownContent) => set(state => ({ editorContent: markdownContent })),
 
   clearEditorContent: () => set(state => ({ editorContent: '' })),
 
