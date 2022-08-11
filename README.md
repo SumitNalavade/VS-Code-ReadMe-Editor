@@ -1,4 +1,3 @@
-u«Zµìmþ™ZŠvÚ±î¸uï¿½Zï¿½ï¿½mï¿½ï¿½Zï¿½vÚ±ï¿½ 
 # Project Title  
 
 A brief description of what this project does and who it's for

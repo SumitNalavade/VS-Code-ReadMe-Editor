@@ -19,10 +19,10 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
 
     webviewView.webview.html = this._getHtmlForWebview(webviewView.webview);
 
-     webviewView.webview.onDidReceiveMessage((data) => {
-        console.log(data);
-        vscode.commands.executeCommand("vscode-readme-editor.open");
-    })
+    webviewView.webview.onDidReceiveMessage((data) => {
+      console.log(data);
+      vscode.commands.executeCommand("vscode-readme-editor.open");
+    });
   }
 
   public revive(panel: vscode.WebviewView) {
@@ -30,44 +30,47 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
   }
 
   private _getHtmlForWebview(webview: vscode.Webview) {
-    const styleResetUri = webview.asWebviewUri(
-      vscode.Uri.joinPath(this._extensionUri, "media", "reset.css")
-    );
     const scriptUri = webview.asWebviewUri(
-      vscode.Uri.joinPath(this._extensionUri, "out", "src/sidebar.js")
-    );
-    const styleMainUri = webview.asWebviewUri(
-      vscode.Uri.joinPath(this._extensionUri, "out", "compiled/sidebar.css")
-    );
-    const styleVSCodeUri = webview.asWebviewUri(
-      vscode.Uri.joinPath(this._extensionUri, "media", "vscode.css")
+      vscode.Uri.joinPath(this._extensionUri, "src", "sidebar.js")
     );
 
     // Use a nonce to only allow a specific script to be run.
     const nonce = getNonce();
 
     return `<!DOCTYPE html>
-			<html lang="en">
-			<head>
-				<meta charset="UTF-8">
-				<!--
-					Use a content security policy to only allow loading images from https or from our extension directory,
-					and only allow scripts that have a specific nonce.
-        -->
-        <meta http-equiv="Content-Security-Policy" content="img-src https: data:; style-src 'unsafe-inline' ${
-      webview.cspSource
-    }; script-src 'nonce-${nonce}';">
-				<meta name="viewport" content="width=device-width, initial-scale=1.0">
-				<link href="${styleResetUri}" rel="stylesheet">
-				<link href="${styleVSCodeUri}" rel="stylesheet">
-        <link href="${styleMainUri}" rel="stylesheet">
-       
-			</head>
-      <body>
-                <button id="click" >Click</button>
-                <script>const vscode = acquireVsCodeApi();</script>
-				<script nonce="${nonce}" src="${scriptUri}"></script>
-			</body>
-			</html>`;
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <!--
+                Use a content security policy to only allow loading images from https or from our extension directory,
+                and only allow scripts that have a specific nonce.
+            -->
+            <meta http-equiv="Content-Security-Policy" content="img-src https: data:; style-src 'unsafe-inline' ${webview.cspSource}; script-src 'unsafe-inline';">
+            <style>
+                #reloadEditor {
+                    width: 100%;
+                    background-color: #ef476f;
+                    color: white;
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 10px;
+                }
+            </style>
+            </head>
+        <body>
+            <button id="reloadEditor" >Reload Editor</button>
+            <script>
+              const vscode = acquireVsCodeApi();
+              
+              const loadWebView = () => {
+                vscode.postMessage({ command: "run", content: "run" })
+              };
+          
+              document.querySelector("#reloadEditor").addEventListener("click", () => loadWebView());
+          
+              loadWebView();
+            </script>
+        </body>
+        </html>`;
   }
 }

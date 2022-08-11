@@ -1,12 +1,12 @@
 {
   "name": "vscode-readme-editor",
   "displayName": "VS Code Readme Editor",
-  "description": "Create, Customize and Commit your project's ReadMe in VS Code with an easy to use visual interface",
+  "description": "Create, Customize and Commit your project's Readme in VS Code with an easy to use visual interface",
   "author": {
     "name": "Sumit Nalavade"
   },
   "publisher": "Sumit Nalavade",
-  "icon": "logo.png",
+  "icon": "media/logo.png",
   "license": "MIT",
   "version": "0.0.1",
   "engines": {
@@ -24,33 +24,33 @@
   ],
   "activationEvents": [
     "onStartupFinished",
-    "onView:vstodo-sidebar"
+    "onView:readme-editor-sidebar"
   ],
   "main": "./out/src/extension.js",
   "contributes": {
     "commands": [
       {
         "command": "vscode-readme-editor.open",
-        "title": "VS Code ReadMe Editor"
+        "title": "VS Code Readme Editor"
       }
     ],
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "vstodo-sidebar-view",
-          "title": "VSTodo",
-          "icon": "/icon.svg"
+          "id": "readme-editor-sidebar-view",
+          "title": "Readme Editor",
+          "icon": "media/icon.svg"
         }
       ]
     },
     "views": {
-      "vstodo-sidebar-view": [
+      "readme-editor-sidebar-view": [
         {
           "type": "webview",
-          "id": "vstodo-sidebar",
-          "name": "VSTodo",
-          "icon": "/icon.svg",
-          "contextualTitle": "VSTodo"
+          "id": "readme-editor-sidebar",
+          "name": "Readme Editor",
+          "icon": "media/icon.svg",
+          "contextualTitle": "Readme Editor"
         }
       ]
     }

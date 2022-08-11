@@ -1,19 +1,13 @@
 import * as vscode from "vscode";
 import { MainViewLoader } from "./MainViewLoader";
 import { SidebarProvider } from "./SidebarProvider";
-import TargetTreeProvider from "./targetTreeProvider";
 
 export function activate(context: vscode.ExtensionContext) {
-  // vscode.window.registerTreeDataProvider(
-  //   "readme-sidebar-view",
-  //   new TargetTreeProvider()
-  // );
-
   const sidebarProvider = new SidebarProvider(context.extensionUri);
   
   context.subscriptions.push(
     vscode.window.registerWebviewViewProvider(
-      "vstodo-sidebar",
+      "readme-editor-sidebar",
       sidebarProvider
     )
   );
