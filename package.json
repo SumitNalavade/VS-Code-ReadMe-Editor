@@ -57,7 +57,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/SumitNalavade/VSCode-ReadMe-Editor.git"
+    "url": "https://github.com/SumitNalavade/VS-Code-ReadMe-Editor"
   },
   "scripts": {
     "vscode:prepublish": "",
