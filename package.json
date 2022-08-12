@@ -1,6 +1,6 @@
 {
   "name": "vscode-readme-editor",
-  "displayName": "VS Code Readme Editor",
+  "displayName": "Readme Editor",
   "description": "Create, Customize and Commit your project's Readme in VS Code with an easy to use visual interface",
   "author": {
     "name": "Sumit Nalavade"
