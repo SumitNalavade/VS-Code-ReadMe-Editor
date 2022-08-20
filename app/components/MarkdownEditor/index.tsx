@@ -1,11 +1,11 @@
-import React from 'react';
-import Editor from '@monaco-editor/react';
+import React from "react";
+import Editor from "@monaco-editor/react";
 
-import useAppStore from '../../stores/useAppStore';
+import useAppStore from "../../stores/useAppStore";
 
 const MarkdownEditor: React.FC = () => {
-  const editorContent = useAppStore(state => state.editorContent);
-  const setEditorContent = useAppStore(state => state.setEditorContent);
+  const editorContent = useAppStore((state) => state.editorContent);
+  const setEditorContent = useAppStore((state) => state.setEditorContent);
 
   const handleChange = (value: string) => {
     setEditorContent(value);
@@ -20,7 +20,7 @@ const MarkdownEditor: React.FC = () => {
         defaultLanguage="Markdown"
         defaultValue={editorContent}
         value={editorContent}
-        onChange={value => handleChange(value as string)}
+        onChange={(value) => handleChange(value as string)}
         options={{
           minimap: {
             enabled: false,

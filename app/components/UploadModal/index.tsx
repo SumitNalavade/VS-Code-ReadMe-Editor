@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 import ReactMarkdown from "react-markdown";
 import { useDropzone } from "react-dropzone";
 
@@ -20,7 +20,7 @@ const UploadModal: React.FC = () => {
       vscode.postMessage({ command: "error", content: "Invalid File! 😳" });
     }
   }, []);
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+  const { getRootProps, getInputProps } = useDropzone({
     onDrop,
     multiple: false,
     accept: { "text/plain": [".md"] },
@@ -93,8 +93,8 @@ const UploadModal: React.FC = () => {
               onClick={handleImportReadMe}
               style={{ backgroundColor: "#06d6a0" }}
             >
-              {" "}
-              <UploadIcon /> Import
+              <UploadIcon />
+              Import
             </button>
           </div>
         </div>

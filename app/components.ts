@@ -1,21 +1,21 @@
-import IComponent from './utils/componentInterface';
+import IComponent from "./utils/componentInterface";
 
 const components: IComponent[] = [
   {
-    name: 'Acknowledgements',
+    name: "Acknowledgements",
     content: `
 ## Acknowledgements  
 - [Readme.so](https://github.com/octokatherine/readme.so)
 - [Awesome README](https://github.com/matiassingers/awesome-readme)
 - [How to write a Good readme](https://bulldogjob.com/news/449-how-to-write-a-good-readme-for-your-github-project)  
 `,
-  description: `
+    description: `
 Acknowledgements are a way to give credit and thanks if you used someone else's code or were just inspired by someone else's work.  
 Provide a title and link to some resources.  
-`
+`,
   },
   {
-    name: 'API Reference',
+    name: "API Reference",
     content: `
 ## API Reference
 
@@ -40,31 +40,31 @@ Provide a title and link to some resources.
 | \`name\`  | \`string\` | **Required**. Name of a new item |
 | \`price\` | \`number\` | **Required**. Name of a new item |  
 `,
-description: `
+    description: `
 API references with proper documentation are crucial when deploying public APIs.  
 At a minimum, be sure to include the parameters and type of the parameter for each route.  
 You can use this component to display properly formatted tables for each route.
-`
+`,
   },
   {
-    name: 'Appendix',
+    name: "Appendix",
     content: `
 ## Appendix  
 Any additional information goes here  
 `,
-description: `
+    description: `
 An appendix can be used to include any additional information that a reader would need or find interesting
-`
+`,
   },
   {
-    name: 'Authors',
+    name: "Authors",
     content: `
 ## Authors  
 - [@SumitNalavade](https://www.github.com/SumitNalavade)  
 `,
   },
   {
-    name: 'Badges',
+    name: "Badges",
     popular: true,
     content: `
 ## Badges  
@@ -72,14 +72,14 @@ An appendix can be used to include any additional information that a reader woul
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://choosealicense.com/licenses/gpl-3.0/)  
 [![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](https://choosealicense.com/licenses/gpl-3.0/)  
 `,
-description: `
+    description: `
 Badge allow readers to view the current state of your project.  
 They can be used to display your projects license, number of starts and deployment status  
 [Popular Badges](https://dev.to/envoy_/150-badges-for-github-pnk)
-`
+`,
   },
   {
-    name: 'Color Reference',
+    name: "Color Reference",
     content: `
 ## Color Reference  
 | Color             | Hex                                                                |  
@@ -91,7 +91,7 @@ They can be used to display your projects license, number of starts and deployme
         `,
   },
   {
-    name: 'Contributing',
+    name: "Contributing",
     content: `
 ## Contributing  
 Contributions are always welcome!  
@@ -100,14 +100,14 @@ See \`contributing.md\` for ways to get started.
 
 Please adhere to this project's \`code of conduct\`.  
 `,
-description: `
+    description: `
 A contributing section in a ReadMe is crucial to open source projects.  
 They allow you to specify some guidelines on contributing for those who are new to your project.  
 You can make a 'CONTRIBUTING.md' file directly in VS Code using this editor!
-`
+`,
   },
   {
-    name: 'Demo',
+    name: "Demo",
     popular: true,
     content: `
 ## Demo  
@@ -115,7 +115,7 @@ Insert gif or link to demo
 `,
   },
   {
-    name: 'Deployment',
+    name: "Deployment",
     content: `
 ## Deployment  
 To deploy this project run  
@@ -126,14 +126,14 @@ To deploy this project run
 `,
   },
   {
-    name: 'Documentation',
+    name: "Documentation",
     content: `
 ## Documentation  
 [Documentation](https://linktodocumentation)  
 `,
   },
   {
-    name: 'Environment Variables',
+    name: "Environment Variables",
     content: `
 ## Environment Variables  
 To run this project, you will need to add the following environment variables to your .env file  
@@ -141,14 +141,14 @@ To run this project, you will need to add the following environment variables to
 
 \`ANOTHER_API_KEY\`  
 `,
-description: `
+    description: `
 A section for environment variables are crucial to open source projects.  
 They allow contributors to setup a local development environment with anything they may need.  
 Be sure to list how contributors can tokens like API Keys and more.
-`
+`,
   },
   {
-    name: 'FAQ',
+    name: "FAQ",
     content: `
 ## FAQ  
 
@@ -162,7 +162,7 @@ Answer 2
 `,
   },
   {
-    name: 'Features',
+    name: "Features",
     popular: true,
     content: `
 ## Features  
@@ -172,50 +172,50 @@ Answer 2
 `,
   },
   {
-    name: 'Feedback',
+    name: "Feedback",
     content: `
 ## Feedback  
 If you have any feedback, please reach to me at vs.nalavade2003@gmail.com  
 `,
   },
   {
-    name: 'Lessons Learned',
+    name: "Lessons Learned",
     content: `
 ## Lessons Learned  
 What did you learn while building this project? What challenges did you face and how did you overcome them?  
 `,
-description: `
+    description: `
 A 'Lessons Learned' component is great for projects where you've tried something new.  
 This can be anything from a couple words on some new technologies you tried or can be a full analysis of the problems you experienced and how you overcame them.
-`
+`,
   },
   {
-    name: 'License',
+    name: "License",
     popular: true,
     content: `
 ## License  
 [MIT](https://choosealicense.com/licenses/mit/)  
 `,
-description: `
+    description: `
 Make sure to add a license to your project, and a section to your ReadMe to protect your work and to allow visitors to use it.  
 [Choose a License](https://choosealicense.com/)  
-`
+`,
   },
   {
-    name: 'Logo',
+    name: "Logo",
     content: `
 ![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)  
 `,
   },
   {
-    name: 'Optimizations',
+    name: "Optimizations",
     content: `
 ## Optimizations  
 What optimizations did you make in your code? E.g. refactors, performance improvements, accessibility  
 `,
   },
   {
-    name: 'Related',
+    name: "Related",
     content: `
 ## Related  
 Here are some related projects  
@@ -225,7 +225,7 @@ Here are some related projects
 `,
   },
   {
-    name: 'Roadmap',
+    name: "Roadmap",
     content: `
 ## Roadmap  
 - Additional browser support  
@@ -234,7 +234,7 @@ Here are some related projects
 `,
   },
   {
-    name: 'Run Locally',
+    name: "Run Locally",
     popular: true,
     content: `
 ## Run Locally  
@@ -262,14 +262,14 @@ Start the server
 npm run start
 ~~~  
 `,
-description: `
+    description: `
 A 'Run Locally' section in a ReadMe is crucial for open source projects.  
 This component allows contributors to install and run your project locally to work on contributions.  
 Make sure to describe all the steps necessary to getting your project up and running locally.
-`
+`,
   },
   {
-    name: 'Images',
+    name: "Images",
     popular: true,
     content: `
 ## Screenshots  
@@ -277,14 +277,14 @@ Make sure to describe all the steps necessary to getting your project up and run
 `,
   },
   {
-    name: 'Support',
+    name: "Support",
     content: `
 ## Support  
 For support, email fake@fake.com or join our Slack channel.  
 `,
   },
   {
-    name: 'Table of Contents',
+    name: "Table of Contents",
     popular: true,
     content: `
 # Table of contents  
@@ -295,7 +295,7 @@ For support, email fake@fake.com or join our Slack channel.
 `,
   },
   {
-    name: 'Tech Stack',
+    name: "Tech Stack",
     popular: true,
     content: `
 ## Tech Stack  
@@ -305,7 +305,7 @@ For support, email fake@fake.com or join our Slack channel.
 `,
   },
   {
-    name: 'Title & Description',
+    name: "Title & Description",
     popular: true,
     content: `
 # Project Title  
@@ -313,7 +313,7 @@ A brief description of what this project does and who it's for
 `,
   },
   {
-    name: 'Usage/Examples',
+    name: "Usage/Examples",
     popular: true,
     content: `
 ## Usage/Examples  

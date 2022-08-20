@@ -1,6 +1,6 @@
 :root {
-  --base-font-family: -apple-system, system-ui, 'Segoe UI', Helvetica, Arial, sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji';
+  --base-font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   --base-colour: #24292e;
 }
 
@@ -175,7 +175,7 @@
   border-radius: 6px;
   box-sizing: border-box;
   color: var(--base-colour);
-  font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
   font-size: 85%;
   line-height: 1.45;
   margin-bottom: 16px;
@@ -192,7 +192,7 @@ code:not(.preview > pre code) {
   border-radius: 6px;
   box-sizing: border-box;
   color: var(--base-colour);
-  font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
   font-size: 85%;
   line-height: 20.4px;
   margin: 0;

@@ -1,12 +1,12 @@
-import create from 'zustand';
-import IComponent from '../utils/componentInterface';
+import create from "zustand";
+import IComponent from "../utils/componentInterface";
 
 interface AppState {
-  componentDrawerStatus: 'popular' | 'all' | 'templates';
-  setComponentDrawerStatus: (status: 'popular' | 'all' | 'templates') => void;
+  componentDrawerStatus: "popular" | "all" | "templates";
+  setComponentDrawerStatus: (status: "popular" | "all" | "templates") => void;
 
   selectedComponent: IComponent | null;
-  setSelectedComponent: (component: IComponent) => void
+  setSelectedComponent: (component: IComponent) => void;
 
   editorContent: string;
   setEditorContent: (content: string) => void;
@@ -22,11 +22,13 @@ interface AppState {
 }
 
 const useAppStore = create<AppState>()((set, get) => ({
-  componentDrawerStatus: 'popular',
-  setComponentDrawerStatus: status => set(state => ({ componentDrawerStatus: status })),
+  componentDrawerStatus: "popular",
+  setComponentDrawerStatus: (status) =>
+    set(() => ({ componentDrawerStatus: status })),
 
   selectedComponent: null,
-  setSelectedComponent: (component) => set((state) => ({ selectedComponent: component })),
+  setSelectedComponent: (component) =>
+    set(() => ({ selectedComponent: component })),
 
   editorContent: `
 # VS Code Readme Editor 📝  
@@ -46,18 +48,19 @@ project's root directory!
 `,
   setEditorContent: (content) => set({ editorContent: content }),
   addEditorContent: (content) =>
-    set(state => ({ editorContent: `${state.editorContent} ${content}` })),
+    set((state) => ({ editorContent: `${state.editorContent} ${content}` })),
 
-  importReadMe: (markdownContent) => set(state => ({ editorContent: markdownContent })),
+  importReadMe: (markdownContent) =>
+    set((state) => ({ editorContent: markdownContent })),
 
-  clearEditorContent: () => set(state => ({ editorContent: '' })),
+  clearEditorContent: () => set((state) => ({ editorContent: "" })),
 
   createReadMe: () => {
     const editorContent = get().editorContent;
 
-    const file = new Blob([editorContent], { type: 'text/plain' });
+    const file = new Blob([editorContent], { type: "text/plain" });
 
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       const reader = new FileReader();
       reader.onloadend = () => resolve(reader.result);
       reader.readAsDataURL(file);
@@ -69,7 +72,7 @@ project's root directory!
 
     const base64ReadMe = await createReadMe();
 
-    vscode.postMessage({ command: 'saveReadMe', content: base64ReadMe });
+    vscode.postMessage({ command: "saveReadMe", content: base64ReadMe });
   },
 }));
 

@@ -1,8 +1,9 @@
 const loadWebView = () => {
-    vscode.postMessage({ command: "run", content: "run" })
+  vscode.postMessage({ command: "run", content: "run" });
 };
 
-document.querySelector("#reloadEditor").addEventListener("click", () => loadWebView());
+document
+  .querySelector("#reloadEditor")
+  .addEventListener("click", () => loadWebView());
 
 loadWebView();
-

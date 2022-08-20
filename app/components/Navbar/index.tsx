@@ -28,7 +28,8 @@ const Navbar: React.FC = () => {
             data-bs-target="#uploadModal"
             style={{ backgroundColor: "#06d6a0" }}
           >
-            <UploadIcon /> Import{" "}
+            <UploadIcon />
+            Import
           </button>
           <button
             type="button"
@@ -36,7 +37,8 @@ const Navbar: React.FC = () => {
             onClick={sendBase64ReadMeToExtension}
             style={{ backgroundColor: "#ef476f" }}
           >
-            <DownloadIcon /> Save{" "}
+            <DownloadIcon />
+            Save
           </button>
         </div>
       </div>
