@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { getNonce } from "./getNonce";
+import { getNonce } from "./utils";
 
 export class SidebarProvider implements vscode.WebviewViewProvider {
   _view?: vscode.WebviewView;
@@ -54,20 +54,26 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
                     padding: 10px 20px;
                     border: none;
                     border-radius: 10px;
+                    transition: filter 0.1s ease-in-out;
+                    cursor: pointer;
+                }
+
+                #reloadEditor:hover {
+                  filter: brightness(70%);
                 }
             </style>
             </head>
         <body>
             <button id="reloadEditor" >Reload Editor</button>
-            <script>
+            <script nonce="${nonce}">
               const vscode = acquireVsCodeApi();
-              
+
               const loadWebView = () => {
                 vscode.postMessage({ command: "run", content: "run" })
               };
-          
+
               document.querySelector("#reloadEditor").addEventListener("click", () => loadWebView());
-          
+
               loadWebView();
             </script>
         </body>

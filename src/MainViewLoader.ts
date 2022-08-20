@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
 import * as path from "path";
 import { posix } from "path";
+import { getNonce } from "./utils";
 
 export class MainViewLoader {
   public static currentPanel?: vscode.WebviewPanel;
@@ -83,6 +84,8 @@ export class MainViewLoader {
   };
 
   render() {
+    const nonce = getNonce();
+
     const bundleScriptPath = this.panel.webview.asWebviewUri(
       vscode.Uri.file(
         path.join(this.context.extensionPath, "out", "app", "bundle.js")
@@ -186,18 +189,18 @@ export class MainViewLoader {
           <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
           <title>ReadMe Editor</title>
         </head>
-    
+
         <body>
           <div id="root"></div>
           <script>
             const vscode = acquireVsCodeApi();
           </script>
-          <script src="${bundleScriptPath}"></script>
-          <script src="${zustandScriptPath}"></script>
-          <script src="${reactMarkdownScriptPath}"></script>
-          <script src="${remarkGfmScript}"></script>
-          <script src="${monacoEditorScript}"></script>
-          <script src="${dropzoneScript}"></script>
+          <script src="${bundleScriptPath}" nonce=${nonce}></script>
+          <script src="${zustandScriptPath}" nonce=${nonce}></script>
+          <script src="${reactMarkdownScriptPath}" nonce=${nonce}></script>
+          <script src="${remarkGfmScript}" nonce=${nonce}></script>
+          <script src="${monacoEditorScript}" nonce=${nonce}></script>
+          <script src="${dropzoneScript}" nonce=${nonce}></script>
           <script>const vscode = acquireVsCodeApi();</script>
           <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
         </body>
