@@ -2,10 +2,12 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 
 import useAppStore from "../../stores/useAppStore";
+import ColorTheme from "../../utils/colorThemeEnum";
 
 const ComponentDescriptionModal: React.FC = () => {
   const selectedComponent = useAppStore((state) => state.selectedComponent);
   const addEditorContent = useAppStore((state) => state.addEditorContent);
+  const colorTheme = useAppStore((state) => state.colorTheme);
 
   const handleAddEditorContent = () => {
     addEditorContent(selectedComponent?.content);
@@ -19,7 +21,7 @@ const ComponentDescriptionModal: React.FC = () => {
       aria-hidden="true"
     >
       <div className="modal-dialog">
-        <div className="modal-content">
+        <div className={`modal-content ${ colorTheme === ColorTheme.DARK ? "bg-dark" : "" }`}>
           <div className="modal-header">
             <h5
               className="modal-title"
@@ -35,7 +37,7 @@ const ComponentDescriptionModal: React.FC = () => {
               aria-label="Close"
             ></button>
           </div>
-          <div className="modal-body">
+          <div className={`modal-body ${ colorTheme === ColorTheme.DARK ? "invertColor" : "" }`}>
             <ReactMarkdown>
               {selectedComponent?.description as string}
             </ReactMarkdown>
@@ -44,7 +46,7 @@ const ComponentDescriptionModal: React.FC = () => {
             <button
               data-bs-dismiss="modal"
               type="button"
-              className="btn btn-primary"
+              className="btn btn-primary border"
               style={{ backgroundColor: "#ef476f" }}
               onClick={handleAddEditorContent}
             >

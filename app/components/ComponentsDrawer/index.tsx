@@ -5,6 +5,7 @@ import templates from "../../templates";
 import useAppStore from "../../stores/useAppStore";
 
 import ComponentsDrawerComponent from "./componentsDrawerComponent";
+import ColorTheme from "../../utils/colorThemeEnum";
 
 const ComponentsDrawer: React.FC = ({}) => {
   const componentDrawerStatus = useAppStore(
@@ -13,6 +14,7 @@ const ComponentsDrawer: React.FC = ({}) => {
   const setComponentDrawerStatus = useAppStore(
     (state) => state.setComponentDrawerStatus
   );
+  const colorTheme = useAppStore((state) => state.colorTheme);
 
   const renderComponents =
     componentDrawerStatus === "all"
@@ -22,7 +24,7 @@ const ComponentsDrawer: React.FC = ({}) => {
       : templates;
 
   return (
-    <div className="offcanvas offcanvas-start" id="offcanvasDrawer">
+    <div className={`offcanvas offcanvas-start ${ colorTheme === ColorTheme.DARK ? "bg-dark" : "" }`} id="offcanvasDrawer">
       <div className="offcanvas-header flex justify-content-between">
         <ul className="nav nav-pills nav-fill">
           <li

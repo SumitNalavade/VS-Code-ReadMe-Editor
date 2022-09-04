@@ -26,7 +26,7 @@ interface AppState {
 }
 
 const useAppStore = create<AppState>()((set, get) => ({
-  colorTheme: ColorTheme.LIGHT,
+  colorTheme: document.querySelector("body")?.attributes[2].value === "vscode-dark" ? ColorTheme.DARK : ColorTheme.LIGHT,
   toggleColorTheme: () => {
     const currentColorTheme = get().colorTheme;
     currentColorTheme === ColorTheme.LIGHT ? set(() => ({ colorTheme: ColorTheme.DARK })) : set(() => ({ colorTheme: ColorTheme.LIGHT }));
