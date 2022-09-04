@@ -1,16 +1,19 @@
 import React from "react";
 
 import useAppStore from "../../stores/useAppStore";
+import ColorTheme from "../../utils/colorThemeEnum";
 
-import { StackIcon, UploadIcon, DownloadIcon } from "../icons";
+import { StackIcon, UploadIcon, DownloadIcon, ToggleColorThemeIcon } from "../icons";
 
 const Navbar: React.FC = () => {
   const sendBase64ReadMeToExtension = useAppStore(
     (state) => state.sendBase64ReadMeToExtension
   );
+  const colorTheme = useAppStore((state) => state.colorTheme);
+  const toggleColorTheme = useAppStore((state) => state.toggleColorTheme);
 
   return (
-    <nav className="navbar bg-light">
+    <nav className={`navbar ${ colorTheme === ColorTheme.LIGHT ? "bg-light" : "bg-dark" }`}>
       <div className="container-fluid d-flex justify-content-between">
         <button
           data-bs-toggle="offcanvas"
@@ -40,6 +43,10 @@ const Navbar: React.FC = () => {
             <DownloadIcon />
             Save
           </button>
+
+          <div onClick={toggleColorTheme} className="d-flex align-items-center justify-content-center mx-2">
+            <ToggleColorThemeIcon />
+          </div>
         </div>
       </div>
     </nav>

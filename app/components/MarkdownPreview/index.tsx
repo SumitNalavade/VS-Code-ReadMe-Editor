@@ -6,12 +6,9 @@ import useAppStore from "../../stores/useAppStore";
 
 import ColorTheme from "../../utils/colorThemeEnum";
 
-interface Props {
-  colorTheme: ColorTheme
-}
-
-const MarkdownPreview: React.FC<Props> = ({ colorTheme }) => {
+const MarkdownPreview: React.FC= () => {
   const editorContent = useAppStore((state) => state.editorContent);
+  const colorTheme = useAppStore((state) => state.colorTheme);
 
   const previewContent = (
     <ReactMarkdown children={editorContent} remarkPlugins={[remarkGfm]} />
