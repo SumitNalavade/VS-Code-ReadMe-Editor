@@ -4,7 +4,13 @@ import remarkGfm from "remark-gfm";
 
 import useAppStore from "../../stores/useAppStore";
 
-const MarkdownPreview: React.FC = () => {
+import ColorTheme from "../../utils/colorThemeEnum";
+
+interface Props {
+  colorTheme: ColorTheme
+}
+
+const MarkdownPreview: React.FC<Props> = ({ colorTheme }) => {
   const editorContent = useAppStore((state) => state.editorContent);
 
   const previewContent = (
@@ -13,8 +19,8 @@ const MarkdownPreview: React.FC = () => {
 
   return (
     <div
-      className="preview overflow-auto text-break border rounded border-muted p-4"
-      style={{ height: "85vh", width: "45vw" }}
+      className={`preview overflow-auto text-break border rounded border-muted p-4 ${ colorTheme === ColorTheme.DARK ? "invertColor" : "" }`}
+      style={{ height: "85vh", width: "45vw"}}
     >
       {previewContent}
     </div>

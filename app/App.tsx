@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import useAppStore from "./stores/useAppStore";
+import useColorTheme from "./hooks/useColorTheme";
 
 import Navbar from "./components/Navbar";
 import UploadModal from "./components/UploadModal";
@@ -10,12 +11,15 @@ import MarkdownEditor from "./components/MarkdownEditor";
 import MarkdownPreview from "./components/MarkdownPreview";
 import useHover from "./hooks/useHover";
 
+import ColorTheme from "./utils/colorThemeEnum";
+
 const App = () => {
   const clearEditorContent = useAppStore((state) => state.clearEditorContent);
   const { isHovering, handleMouseEnter, handleMouseLeave } = useHover();
-
+  const { colorTheme, toggleColorTheme } = useColorTheme();
+  
   return (
-    <div className="container-fluid px-0">
+    <div className={`container-fluid px-0 ${ colorTheme === ColorTheme.LIGHT ? "" : "bg-dark" }`}>
       <Navbar />
 
       <UploadModal />
@@ -45,6 +49,7 @@ const App = () => {
                 Clear
               </p>
             </span>
+            <p onClick={toggleColorTheme}>Toggle Color Theme</p>
           </div>
           <MarkdownEditor />
         </div>
@@ -60,7 +65,7 @@ const App = () => {
             <strong>Preview</strong>
           </p>
 
-          <MarkdownPreview />
+          <MarkdownPreview colorTheme={colorTheme} />
         </div>
       </div>
     </div>

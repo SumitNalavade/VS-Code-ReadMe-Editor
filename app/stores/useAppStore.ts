@@ -2,6 +2,8 @@ import create from "zustand";
 import IComponent from "../utils/componentInterface";
 
 interface AppState {
+
+
   componentDrawerStatus: "popular" | "all" | "templates";
   setComponentDrawerStatus: (status: "popular" | "all" | "templates") => void;
 

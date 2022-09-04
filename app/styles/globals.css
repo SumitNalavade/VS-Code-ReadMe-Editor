@@ -77,6 +77,14 @@ select {
   }
 }
 
+#root {
+  height: 100vh;
+}
+
+#root .container-fluid {
+  height: 100%;
+}
+
 .card:hover,
 .pointer {
   cursor: pointer;
@@ -89,4 +97,8 @@ select {
 .navLinkSelected {
   background-color: #ef476f !important;
   color: white !important;
+}
+
+.invertColor {
+  filter: invert(0.9);
 }
