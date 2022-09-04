@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
   const toggleColorTheme = useAppStore((state) => state.toggleColorTheme);
 
   return (
-    <nav className={`navbar ${ colorTheme === ColorTheme.LIGHT ? "bg-light" : "bg-dark" }`}>
+    <nav className={`navbar ${ colorTheme === ColorTheme.LIGHT ? "bg-light" : "bg-dark border-bottom border-secondary" }`}>
       <div className="container-fluid d-flex justify-content-between">
         <button
           data-bs-toggle="offcanvas"

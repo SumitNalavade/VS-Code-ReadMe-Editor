@@ -6,8 +6,11 @@ import { UploadIcon } from "../icons";
 
 import useAppStore from "../../stores/useAppStore";
 
+import ColorTheme from "../../utils/colorThemeEnum";
+
 const UploadModal: React.FC = () => {
   const importReadMe = useAppStore((state) => state.importReadMe);
+  const colorTheme = useAppStore((state) => state.colorTheme);
 
   const [uploadedFileContent, setUploadedFileContent] = useState<string>();
 
@@ -52,7 +55,7 @@ const UploadModal: React.FC = () => {
       aria-hidden="true"
     >
       <div className="modal-dialog modal-dialog-scrollable">
-        <div className="modal-content">
+        <div className={`modal-content ${ colorTheme === ColorTheme.DARK ? "bg-dark" : "" }`}>
           <div className="modal-header">
             <h5 className="modal-title" id="uploadModalLabel">
               Import ReadMe
@@ -65,7 +68,7 @@ const UploadModal: React.FC = () => {
               onClick={() => setUploadedFileContent("")}
             ></button>
           </div>
-          <div className="modal-body">
+          <div className={`modal-body ${ colorTheme === ColorTheme.DARK ? "invertColor" : "" }`}>
             <div
               {...getRootProps()}
               className="d-flex flex-column justify-content-center align-items-center bg-muted"
