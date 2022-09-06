@@ -18,7 +18,7 @@ const ComponentsDrawerComponent: React.FC<Props> = ({ component }) => {
   const colorTheme = useAppStore((state) => state.colorTheme);
 
   return (
-    <div className={`card my-2 ${ colorTheme === ColorTheme.DARK ? "bg-dark text-white border-white" : "" }`}>
+    <div className={`card my-2 ${ colorTheme === ColorTheme.DARK ? "bg-dark text-white border-secondary" : "" }`}>
       <div
         className="card-body d-flex justify-content-between"
         onClick={() => addEditorContent(component.content)}

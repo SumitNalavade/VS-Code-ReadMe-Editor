@@ -102,3 +102,8 @@ select {
 .invertColor {
   filter: invert(0.9);
 }
+
+.darkMode {
+  color: white;
+  background-color: #212529;
+}

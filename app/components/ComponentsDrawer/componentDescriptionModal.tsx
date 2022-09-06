@@ -3,6 +3,7 @@ import ReactMarkdown from "react-markdown";
 
 import useAppStore from "../../stores/useAppStore";
 import ColorTheme from "../../utils/colorThemeEnum";
+import { CloseIcon } from "../icons";
 
 const ComponentDescriptionModal: React.FC = () => {
   const selectedComponent = useAppStore((state) => state.selectedComponent);
@@ -30,12 +31,13 @@ const ComponentDescriptionModal: React.FC = () => {
             >
               {selectedComponent?.name}
             </h5>
-            <button
-              type="button"
-              className="btn-close"
+            <div
               data-bs-dismiss="modal"
               aria-label="Close"
-            ></button>
+              className={`${ colorTheme === ColorTheme.DARK ? "text-secondary" : "" }`}
+              >
+              <CloseIcon />
+            </div>
           </div>
           <div className={`modal-body ${ colorTheme === ColorTheme.DARK ? "invertColor" : "" }`}>
             <ReactMarkdown>

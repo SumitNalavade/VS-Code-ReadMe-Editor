@@ -16,7 +16,7 @@ const MarkdownPreview: React.FC= () => {
 
   return (
     <div
-      className={`preview overflow-auto text-break border rounded border-muted p-4 ${ colorTheme === ColorTheme.DARK ? "invertColor" : "" }`}
+      className={`preview overflow-auto text-break border rounded border-secondary p-4 ${ colorTheme === ColorTheme.DARK ? "invertColor" : "" }`}
       style={{ height: "85vh", width: "45vw"}}
     >
       {previewContent}
