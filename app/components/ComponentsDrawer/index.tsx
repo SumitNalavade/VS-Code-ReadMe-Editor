@@ -5,6 +5,8 @@ import templates from "../../templates";
 import useAppStore from "../../stores/useAppStore";
 
 import ComponentsDrawerComponent from "./componentsDrawerComponent";
+import ColorTheme from "../../utils/colorThemeEnum";
+import { CloseIcon } from "../icons";
 
 const ComponentsDrawer: React.FC = ({}) => {
   const componentDrawerStatus = useAppStore(
@@ -13,6 +15,7 @@ const ComponentsDrawer: React.FC = ({}) => {
   const setComponentDrawerStatus = useAppStore(
     (state) => state.setComponentDrawerStatus
   );
+  const colorTheme = useAppStore((state) => state.colorTheme);
 
   const renderComponents =
     componentDrawerStatus === "all"
@@ -22,7 +25,12 @@ const ComponentsDrawer: React.FC = ({}) => {
       : templates;
 
   return (
-    <div className="offcanvas offcanvas-start" id="offcanvasDrawer">
+    <div
+      className={`offcanvas offcanvas-start ${
+        colorTheme === ColorTheme.DARK ? "bg-dark" : ""
+      }`}
+      id="offcanvasDrawer"
+    >
       <div className="offcanvas-header flex justify-content-between">
         <ul className="nav nav-pills nav-fill">
           <li
@@ -62,11 +70,13 @@ const ComponentsDrawer: React.FC = ({}) => {
             </a>
           </li>
         </ul>
-        <button
-          type="button"
-          className="btn-close nav-link"
+        <div
           data-bs-dismiss="offcanvas"
-        ></button>
+          aria-label="Close"
+          className={`${colorTheme === ColorTheme.DARK ? "text-secondary" : ""}`}
+        >
+          <CloseIcon />
+        </div>
       </div>
       <div className="offcanvas-body">
         {renderComponents.map((component, index) => {

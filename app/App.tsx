@@ -10,12 +10,16 @@ import MarkdownEditor from "./components/MarkdownEditor";
 import MarkdownPreview from "./components/MarkdownPreview";
 import useHover from "./hooks/useHover";
 
+import ColorTheme from "./utils/colorThemeEnum";
+
 const App = () => {
   const clearEditorContent = useAppStore((state) => state.clearEditorContent);
+  const colorTheme = useAppStore((state) => state.colorTheme);
+  
   const { isHovering, handleMouseEnter, handleMouseLeave } = useHover();
 
   return (
-    <div className="container-fluid px-0">
+    <div className={`container-fluid px-0 ${ colorTheme === ColorTheme.LIGHT ? "" : "bg-dark" }`}>
       <Navbar />
 
       <UploadModal />

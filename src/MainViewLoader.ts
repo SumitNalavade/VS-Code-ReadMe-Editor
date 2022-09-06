@@ -80,7 +80,7 @@ export class MainViewLoader {
       path: posix.join(workspaceRootUri.path, "README.md"),
     });
 
-    vscode.workspace.fs.writeFile(newReadMeUri, readMeBuffer);
+    vscode.workspace.fs.writeFile(newReadMeUri, readMeBuffer).then(() => vscode.window.showInformationMessage("ReadMe saved to root successfully 😊"));
   };
 
   render() {
@@ -164,12 +164,9 @@ export class MainViewLoader {
           const bufferValue = Buffer.from(strippedBase64, "base64");
           try {
             this.saveReadMeBufferToWorkspaceRoot(bufferValue);
-            vscode.window.showInformationMessage(
-              "ReadMe saved to root successfully 😊"
-            );
           } catch {
             vscode.window.showErrorMessage("Something went wrong 😳");
-          }
+          } 
           break;
         case "info":
           vscode.window.showInformationMessage(content);
