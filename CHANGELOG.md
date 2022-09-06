@@ -1,9 +1,8 @@
 # Change Log
 
-All notable changes to the "vscode-webview-react-boilerplate" extension will be documented in this file.
+All notable changes to the "VS-Code-ReadMe-Editor" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+## [V1.0.0]
 
-## [Unreleased]
-
-- Initial release
+- Add dark mode support
+- Set color based on vscode theme
