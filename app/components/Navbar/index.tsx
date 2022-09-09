@@ -44,7 +44,7 @@ const Navbar: React.FC = () => {
             Save
           </button>
 
-          <div onClick={toggleColorTheme} className="d-flex align-items-center justify-content-center mx-2">
+          <div onClick={toggleColorTheme} className="d-flex align-items-center justify-content-center mx-2" style={{ cursor: "pointer" }}>
             <ToggleColorThemeIcon />
           </div>
         </div>
