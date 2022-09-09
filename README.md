@@ -14,7 +14,8 @@ In the VS Code extension marketplace look up:
 - Choose from components to speed up your workflow. 
 - Download directly to project root  
 - Import existing Readme and customize
-- Live Previews    
+- Live Previews
+- Dark/Light Mode based on VS Code theme
 
 ## Demo 🚀
 ![App Screenshot](https://github.com/SumitNalavade/VS-Code-ReadMe-Editor/blob/main/media/demo/demo_1.gif?raw=true)  
