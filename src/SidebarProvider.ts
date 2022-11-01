@@ -46,33 +46,14 @@ export class SidebarProvider implements vscode.WebviewViewProvider {
                 and only allow scripts that have a specific nonce.
             -->
             <meta http-equiv="Content-Security-Policy" content="img-src https: data:; style-src 'unsafe-inline' ${webview.cspSource}; script-src 'unsafe-inline';">
-            <style>
-                #reloadEditor {
-                    width: 100%;
-                    background-color: #ef476f;
-                    color: white;
-                    padding: 10px 20px;
-                    border: none;
-                    border-radius: 10px;
-                    transition: filter 0.1s ease-in-out;
-                    cursor: pointer;
-                }
-
-                #reloadEditor:hover {
-                  filter: brightness(70%);
-                }
-            </style>
             </head>
         <body>
-            <button id="reloadEditor" >Reload Editor</button>
             <script nonce="${nonce}">
               const vscode = acquireVsCodeApi();
 
               const loadWebView = () => {
                 vscode.postMessage({ command: "run", content: "run" })
               };
-
-              document.querySelector("#reloadEditor").addEventListener("click", () => loadWebView());
 
               loadWebView();
             </script>
