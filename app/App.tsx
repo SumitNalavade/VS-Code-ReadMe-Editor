@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 
 import useAppStore from "./stores/useAppStore";
 
@@ -13,6 +13,11 @@ import useHover from "./hooks/useHover";
 import ColorTheme from "./utils/colorThemeEnum";
 
 const App = () => {
+  window.addEventListener('message', event => {
+    const message = event.data; // The JSON data our extension sent
+    console.log(message);
+  });
+
   const clearEditorContent = useAppStore((state) => state.clearEditorContent);
   const colorTheme = useAppStore((state) => state.colorTheme);
   

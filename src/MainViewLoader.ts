@@ -2,6 +2,8 @@ import * as vscode from "vscode";
 import * as path from "path";
 import { posix } from "path";
 import { getNonce } from "./utils";
+import { LocalStorageService } from "./localStorageService";
+import { IReadMe } from "./utils/interfaces";
 
 export class MainViewLoader {
   public static currentPanel?: vscode.WebviewPanel;
@@ -9,10 +11,12 @@ export class MainViewLoader {
   private panel: vscode.WebviewPanel;
   private context: vscode.ExtensionContext;
   private disposables: vscode.Disposable[];
+  private storageManager: LocalStorageService;
 
   constructor(context: vscode.ExtensionContext) {
     this.context = context;
     this.disposables = [];
+    this.storageManager = new LocalStorageService(context.workspaceState);
 
     this.panel = vscode.window.createWebviewPanel(
       "reactApp",
@@ -167,6 +171,17 @@ export class MainViewLoader {
           } catch {
             vscode.window.showErrorMessage("Something went wrong 😳");
           } 
+
+          const pastReadMes: IReadMe[] = this.storageManager.getValue("pastReadMes");
+
+          if(pastReadMes) {
+            pastReadMes.push({ date: new Date(), content });
+            this.storageManager.setValue<IReadMe[]>("pastReadMes", pastReadMes);
+          } else {
+            this.storageManager.setValue<IReadMe[]>("pastReadMes", [{ date: new Date(), content }]);
+          }
+
+
           break;
         case "info":
           vscode.window.showInformationMessage(content);
