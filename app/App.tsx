@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import useAppStore from "./stores/useAppStore";
 
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import UploadModal from "./components/UploadModal";
 import ComponentDescriptionModal from "./components/ComponentsDrawer/componentDescriptionModal";
 import ComponentsDrawer from "./components/ComponentsDrawer";
@@ -13,14 +14,16 @@ import useHover from "./hooks/useHover";
 import ColorTheme from "./utils/colorThemeEnum";
 
 const App = () => {
-  window.addEventListener('message', event => {
-    const message = event.data; // The JSON data our extension sent
-    console.log(message);
-  });
-
   const clearEditorContent = useAppStore((state) => state.clearEditorContent);
   const colorTheme = useAppStore((state) => state.colorTheme);
+  const setHistory = useAppStore((state) => state.setHistory);
   
+  window.addEventListener('message', event => {
+    const history = event.data; // The JSON data our extension sent
+    console.log(history);
+    setHistory(history);
+  });
+
   const { isHovering, handleMouseEnter, handleMouseLeave } = useHover();
 
   return (
@@ -72,6 +75,7 @@ const App = () => {
           <MarkdownPreview />
         </div>
       </div>
+        <Footer />
     </div>
   );
 };

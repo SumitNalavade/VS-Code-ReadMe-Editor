@@ -1,8 +1,12 @@
 import create from "zustand";
 import IComponent from "../utils/componentInterface";
 import ColorTheme from "../utils/colorThemeEnum";
+import IReadMe from "../utils/pastReadmeInterface";
 
 interface AppState {
+  history: IReadMe[]
+  setHistory: (history: IReadMe[]) => void,
+
   colorTheme : ColorTheme
   toggleColorTheme: () => void
 
@@ -26,6 +30,11 @@ interface AppState {
 }
 
 const useAppStore = create<AppState>()((set, get) => ({
+  history: [],
+  setHistory: (history) => {
+    set(() => ({ history }));
+  },
+
   colorTheme: document.querySelector("body")?.attributes[2].value === "vscode-dark" ? ColorTheme.DARK : ColorTheme.LIGHT,
   toggleColorTheme: () => {
     const currentColorTheme = get().colorTheme;

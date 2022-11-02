@@ -16,7 +16,7 @@ const MarkdownEditor: React.FC = () => {
       <Editor
         theme="vs-dark"
         width="45vw"
-        height="85vh"
+        height="80vh"
         defaultLanguage="Markdown"
         defaultValue={editorContent}
         value={editorContent}

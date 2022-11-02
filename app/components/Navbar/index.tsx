@@ -3,12 +3,9 @@ import React from "react";
 import useAppStore from "../../stores/useAppStore";
 import ColorTheme from "../../utils/colorThemeEnum";
 
-import { StackIcon, UploadIcon, DownloadIcon, ToggleColorThemeIcon } from "../icons";
+import { HistoryIcon, StackIcon, ToggleColorThemeIcon } from "../icons";
 
 const Navbar: React.FC = () => {
-  const sendBase64ReadMeToExtension = useAppStore(
-    (state) => state.sendBase64ReadMeToExtension
-  );
   const colorTheme = useAppStore((state) => state.colorTheme);
   const toggleColorTheme = useAppStore((state) => state.toggleColorTheme);
 
@@ -24,28 +21,11 @@ const Navbar: React.FC = () => {
           <StackIcon />
         </button>
         <div className="d-flex justify-content-around">
-          <button
-            type="button"
-            className="btn text-white d-flex align-items-center mx-2"
-            data-bs-toggle="modal"
-            data-bs-target="#uploadModal"
-            style={{ backgroundColor: "#06d6a0" }}
-          >
-            <UploadIcon />
-            Import
-          </button>
-          <button
-            type="button"
-            className="btn text-white d-flex align-items-center mx-2"
-            onClick={sendBase64ReadMeToExtension}
-            style={{ backgroundColor: "#ef476f" }}
-          >
-            <DownloadIcon />
-            Save
-          </button>
-
           <div onClick={toggleColorTheme} className="d-flex align-items-center justify-content-center mx-2" style={{ cursor: "pointer" }}>
             <ToggleColorThemeIcon />
+          </div>
+          <div className="d-flex align-items-center justify-content-center mx-2" style={{ cursor: "pointer" }}>
+              <HistoryIcon />
           </div>
         </div>
       </div>
