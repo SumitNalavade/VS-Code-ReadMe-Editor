@@ -3,6 +3,9 @@ A VS Code extension to create, customize and save your Readme without having to 
 
 Built with TypeScript & React using the VS Code Webview API
 
+# VS Code Extension Marketplace
+https://marketplace.visualstudio.com/items?itemName=SumitNalavade.vscode-readme-editor
+
 ## Installation  
 In the VS Code extension marketplace look up:
 ~~~javascript  
