@@ -24,8 +24,8 @@ In the VS Code extension marketplace look up:
 - Dark/Light Mode based on VS Code theme
 
 ## Demo 🚀
-![App Screenshot](https://github.com/SumitNalavade/VS-Code-ReadMe-Editor/blob/main/media/demo/demo_1.gif?raw=true)  
-![App Screenshot](https://github.com/SumitNalavade/VS-Code-ReadMe-Editor/blob/main/media/demo/demo_2.gif?raw=true)  
+![App Screenshot](https://github.com/SumitNalavade/VS-Code-ReadMe-Editor/blob/main/assets/demo/demo_1.gif?raw=true)  
+![App Screenshot](https://github.com/SumitNalavade/VS-Code-ReadMe-Editor/blob/main/assets/demo/demo_2.gif?raw=true)  
 
 ## Contributing 🧑‍💻  
 Contributions are always welcome!  

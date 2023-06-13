@@ -25,6 +25,7 @@
     "zustand": "^4.3.8"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.9",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
     "@types/vscode-webview": "^1.57.0",

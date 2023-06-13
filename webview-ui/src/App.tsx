@@ -15,38 +15,45 @@ const App = () => {
 
   const [uploadedReadMe, setUploadedReadMe] = useState<string | null>(null);
 
-  const handleUpload = (uploadedFile: File) => {
-
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      const text = e.target!.result as string;
-      return text
-    }
-
-    reader.readAsText(uploadedFile)
-
-    // // @ts-ignore
-    // window.my_modal_2.showModal()
-  }
-
-  const test = (evt: React.ChangeEvent<HTMLInputElement>) => {
+  const handleUpload = async (evt: React.ChangeEvent<HTMLInputElement>) => {
     const uploadedFile = evt.target.files![0];
 
-    console.log(handleUpload(uploadedFile))
-  }
-  
+    const fileText = await new Promise((resolve, reject) => {
+      const fr = new FileReader();
+
+      fr.onload = () => {
+        resolve(fr.result);
+      };
+
+      fr.onerror = reject;
+
+      fr.readAsText(uploadedFile);
+    });
+
+    setUploadedReadMe(fileText as string);
+
+    // @ts-ignore
+    window.my_modal_2.showModal();
+  };
+
   const handleBrowseClick = () => {
     fileInputRef.current?.click();
   };
 
   return (
     <Layout>
-      <input type="file" id="selectedFile" ref={fileInputRef} className="hidden" onChange={test} />
+      <input
+        type="file"
+        id="selectedFile"
+        ref={fileInputRef}
+        className="hidden"
+        onChange={handleUpload}
+      />
       <button className="btn" onClick={handleBrowseClick}>
         Import ReadMe
       </button>
 
-      { uploadedReadMe ? (<UploadModal uploadedReadMe={uploadedReadMe} />) : "" }
+      {uploadedReadMe ? <UploadModal uploadedReadMe={uploadedReadMe} /> : ""}
 
       {/* <ComponentDescriptionModal />
 
