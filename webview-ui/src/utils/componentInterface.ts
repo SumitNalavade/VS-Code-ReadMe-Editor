@@ -3,5 +3,6 @@ export default interface IComponent {
     description?: string,
     content: any,
     popular?: boolean,
+    template?: boolean
     id?: string
 }

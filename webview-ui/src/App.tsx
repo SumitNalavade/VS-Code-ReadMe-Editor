@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 import Layout from "./components/Layout";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import UploadModal from "./components/UploadModal";
+import ImportModal from "./components/ImportModal";
 import Sections from "./components/Sections";
 import ComponentDescriptionModal from "./components/ComponentsDrawer/componentDescriptionModal";
 import ComponentsDrawer from "./components/ComponentsDrawer";
@@ -53,11 +53,12 @@ const App = () => {
         Import ReadMe
       </button>
 
-      {uploadedReadMe ? <UploadModal uploadedReadMe={uploadedReadMe} /> : ""}
+      {uploadedReadMe ? <ImportModal uploadedReadMe={uploadedReadMe} /> : ""}
+
+      {/* <ComponentsDrawer /> */}
 
       {/* <ComponentDescriptionModal />
 
-      <ComponentsDrawer />
 
       <div className="d-flex justify-content-between pt-4">
         <div className="container">

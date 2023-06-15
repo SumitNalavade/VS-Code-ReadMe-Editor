@@ -4,15 +4,14 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 
 import { BsUpload } from "react-icons/bs";
-import useAppStore from "../../stores/useAppStore";
+import useAppStore from "../stores/useAppStore";
 
 interface Props {
   uploadedReadMe: string;
 }
 
-const UploadModal: React.FC<Props> = ({ uploadedReadMe }) => {
+const ImportModal: React.FC<Props> = ({ uploadedReadMe }) => {
   const importReadMe = useAppStore((state) => state.importReadMe);
-
 
   const handleImportReadMe = () => {
     importReadMe(uploadedReadMe);
@@ -20,7 +19,10 @@ const UploadModal: React.FC<Props> = ({ uploadedReadMe }) => {
 
   return (
     <dialog id="my_modal_2" className="modal">
-      <form method="dialog" className="modal-box relative p-0 w-11/12 max-w-4xl" onSubmit={handleImportReadMe}>
+      <form
+        method="dialog"
+        className="modal-box relative p-0 w-11/12 max-w-4xl"
+        onSubmit={handleImportReadMe}>
         <div className="modal-dialog-scrollable p-4 flex justify-center">
           <ReactMarkdown
             className="prose pt-4"
@@ -44,4 +46,4 @@ const UploadModal: React.FC<Props> = ({ uploadedReadMe }) => {
   );
 };
 
-export default UploadModal;
+export default ImportModal;
